@@ -16,17 +16,16 @@
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.1s ease, box-shadow 0.2s ease-in;
-  margin-bottom: 3px;
-  padding: 10px;
+  /* padding: 4px; */
   border-radius: 20px;
   margin-bottom: 10px;
 }
 
 .card-products:hover {
-  transform: scale(1);
+  transform: scale(1.001);
   height: max-content;
   padding: 0;
-  border: 0.01px solid;
+  border: 0.0001px solid;
   border-radius: 5%;
 }
 
@@ -46,7 +45,7 @@
   justify-content: center;
   background-color: #e7ff86;
   border-radius: 30px;
-  font-weight: bolder;
+  font-weight: bold;
   color: rgba(71, 71, 71, 1);
   padding: 9px;
   position: absolute;
@@ -203,24 +202,20 @@
   font-size: 15px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .container-products {
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
     gap: 4px 5px;
     margin-top: 5px;
     padding-top: 5px;
   }
   .card-products {
     height: max-content;
-    width: calc(40% - 30px);
-    padding: 2px;
+    width: calc(38% - 30px);
+    /* padding: 2px; */
     border-radius: 0;
     position: relative;
-  }
-
-  .card-products:hover {
-    padding: 2px;
   }
 
   .card-image {
@@ -237,8 +232,9 @@
   .pi-cart-plus {
     font-size: 11px;
     position: absolute;
-    right: -5.1px;
-    bottom: -29px;
+    right: 3px;
+    bottom: 7px;
+    height: max-content;
   }
 
   .card-titles {
@@ -255,10 +251,10 @@
 
   .card-disccount {
     display: flex;
-    width: 44px;
-    height: 20px;
-    font-size: 8px;
-    padding: 5px;
+    width: 38px;
+    height: 15px;
+    font-size: 7px;
+    padding: 4px;
     top: 0;
     left: 0;
   }
@@ -266,8 +262,11 @@
   .card-descriptions p {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
       "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.1px;
+    font-size: 8.4px;
+    font-weight: bolder;
+    letter-spacing: 0.22px;
+    border: 1px solid;
+    width: 100%;
   }
   .card-descriptions {
     width: 100%;
@@ -355,7 +354,7 @@
   .card-products {
     height: 2px;
     width: calc(25% - 30px);
-    padding: 3px;
+    /* padding: 3px; */
     border-radius: 0;
     position: relative;
   }
@@ -373,7 +372,7 @@
   .pi-cart-minus,
   .pi-cart-plus {
     font-size: 15px;
-    position: absolute;
+    /* position: absolute; */
     right: -5px;
     bottom: -26px;
   }
@@ -515,10 +514,10 @@
   }
   .pi-cart-minus,
   .pi-cart-plus {
-    font-size: 15px;
-    position: absolute;
-    right: -5px;
-    bottom: -26px;
+    font-size: 16px;
+    /* position: absolute; */
+    right: -4px;
+    bottom: -29px;
   }
 
   .card-titles {
@@ -550,7 +549,157 @@
     font-family: Inter;
     font-size: 21px;
     font-weight: bold;
-    letter-spacing: 0.65px;
+    letter-spacing: 0.55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid; */
+  }
+
+  .card-descriptions {
+    width: 100%;
+  }
+
+  .container-collections h2 {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .container-collections {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .card-calcas,
+  .card-camisas,
+  .card-fones,
+  .card-tenis {
+    width: 15%;
+    height: 70%;
+    padding: 5px;
+    margin: 0 2px;
+  }
+
+  .card-calcas h3,
+  .card-camisas h3,
+  .card-fones h3,
+  .card-tenis h3 {
+    font-size: 11.2px;
+    letter-spacing: 0.19px;
+    font-weight: lighter;
+  }
+
+  .card-calcas:hover,
+  .card-camisas:hover,
+  .card-fones:hover,
+  .card-tenis:hover {
+    border: 1px solid;
+  }
+
+  .calcas-title,
+  .tenis-title,
+  .fones-title,
+  .camisas-title {
+    width: 60%;
+    height: 70%;
+    padding: 0;
+    margin: 0;
+  }
+  .calcas-title img,
+  .fones-title img,
+  .tenis-title img,
+  .camisas-title img {
+    width: 100;
+    height: 100%;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .card-ver-mais {
+    margin-top: 10px;
+  }
+
+  .container-produtosemalta {
+    width: 100%;
+    padding: 0 2.6em;
+    justify-content: space-between;
+    display: flex;
+  }
+  .container-produtosemalta h3,
+  .link-vermais-global {
+    width: max-content;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 801px) {
+  .container-products {
+    width: 100%;
+    justify-content: space-around;
+    gap: 4px 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+    /* margin: 0 10px; */
+  }
+  .card-products {
+    height: max-content;
+    width: calc(25% - 30px);
+    position: relative;
+  }
+
+  .card-image {
+    padding: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .card-products img {
+    height: auto;
+    width: 100%;
+  }
+  .pi-cart-minus,
+  .pi-cart-plus {
+    font-size: 14px;
+    /* position: absolute; */
+    right: -4px;
+    bottom: -29px;
+  }
+
+  .card-titles {
+    padding-left: 2px;
+    font-size: 14px;
+  }
+
+  .card-prices p {
+    font-size: 13px;
+  }
+  .card-prices {
+    gap: 2px;
+    width: max-content;
+    padding-left: 3px;
+  }
+
+  .card-disccount {
+    display: flex;
+    width: 67px;
+    height: 20px;
+    font-size: 13px;
+    padding: 5px;
+    top: 12px;
+    left: 14px;
+  }
+
+  .card-descriptions p {
+    width: 100%;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.55px;
     display: flex;
     align-items: center;
     justify-content: center;

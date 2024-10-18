@@ -60,7 +60,7 @@ const CardProducts = ({
         <p className="old-price">{price}</p>
         <p className="new-price">{new_price}</p>
       </div>
-      <div className="card-icones">
+      <>
         {setIsAdded ? (
           <Link
             to="/cart"
@@ -73,7 +73,7 @@ const CardProducts = ({
             className="pi pi-cart-minus"
           ></Link>
         )}
-      </div>
+      </>
     </div>
   );
 };

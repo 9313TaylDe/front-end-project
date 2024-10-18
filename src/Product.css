@@ -2237,7 +2237,7 @@
   }
 }
 
-@media (min-width: 1080px) and (max-height: 2399px) {
+@media (min-width: 1080px) and (max-height: 3000px) {
   .container-products {
     width: 100%;
     justify-content: stretch;

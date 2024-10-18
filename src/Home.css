@@ -1,0 +1,14 @@
+.main-content {
+  display: flex;
+  min-height: 55vh;
+  width: 100%;
+}
+
+.div-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}

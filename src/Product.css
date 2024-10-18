@@ -1,0 +1,640 @@
+.container-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1px;
+  padding: 0 15px;
+  margin-top: 3em;
+  width: 100%;
+}
+
+.card-products {
+  width: calc(25% - 40px);
+  height: 400px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.1s ease, box-shadow 0.2s ease-in;
+  margin-bottom: 3px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.card-products:hover {
+  transform: scale(1);
+  height: max-content;
+  padding: 0;
+  border: 0.01px solid;
+  border-radius: 5%;
+}
+
+.card-image {
+  width: auto;
+  height: 73%;
+}
+
+.card-image img {
+  width: 100%;
+}
+
+.card-disccount {
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7ff86;
+  border-radius: 30px;
+  font-weight: bolder;
+  color: rgba(71, 71, 71, 1);
+  padding: 9px;
+  position: absolute;
+  left: 1.8em;
+  top: 1em;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.card-descriptions {
+  display: flex;
+  width: 100%;
+}
+
+.card-descriptions p {
+  font-family: Inter;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: #474747;
+}
+
+.card-prices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: max-content;
+  height: 27px;
+}
+
+.old-price {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  text-align: left;
+  color: #8f8f8f;
+  text-decoration: line-through;
+}
+
+.new-price {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  text-align: left;
+}
+
+.card-ver-mais {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+.card-ver-mais button {
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+
+#ver-mais,
+#ver-menos {
+  gap: 7px;
+}
+
+.card-icones {
+  position: absolute;
+  bottom: 39px;
+  right: 9.4px;
+  width: max-content;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.pi-cart-minus,
+.pi-cart-plus {
+  font-size: 21px;
+}
+
+.endereco {
+  color: white;
+}
+
+.container-collections {
+  width: 36%;
+  height: 7em;
+  padding: 8px 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  gap: 0;
+}
+
+.container-collections h2 {
+  width: max-content;
+  font-size: 15px;
+  /* border: 1px solid; */
+}
+
+.card-calcas,
+.card-camisas,
+.card-fones,
+.card-tenis {
+  width: 100%;
+  height: 100%;
+  margin: 0 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.camisas-title,
+.calcas-title,
+.fones-title,
+.tenis-title {
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+
+.card-calcas:hover,
+.card-camisas:hover,
+.card-fones:hover,
+.card-tenis:hover {
+  /* border: 1px solid; */
+  border-radius: 10%;
+}
+
+.container-produtosemalta {
+  width: 100%;
+  padding: 0 1em;
+  justify-content: space-between;
+  display: flex;
+}
+.container-produtosemalta h3,
+.link-vermais-global {
+  width: max-content;
+  font-size: 15px;
+}
+
+@media (max-width: 500px) {
+  .container-products {
+    width: 100%;
+    justify-content: center;
+    gap: 4px 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+  }
+  .card-products {
+    height: max-content;
+    width: calc(40% - 30px);
+    padding: 2px;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .card-products:hover {
+    padding: 2px;
+  }
+
+  .card-image {
+    padding: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .card-products img {
+    height: auto;
+    width: 100%;
+  }
+  .pi-cart-minus,
+  .pi-cart-plus {
+    font-size: 11px;
+    position: absolute;
+    right: -5.1px;
+    bottom: -29px;
+  }
+
+  .card-titles {
+    font-size: 10px;
+  }
+
+  .card-prices p {
+    font-size: 10px;
+  }
+  .card-prices {
+    gap: 2px;
+    width: max-content;
+  }
+
+  .card-disccount {
+    display: flex;
+    width: 44px;
+    height: 20px;
+    font-size: 8px;
+    padding: 5px;
+    top: 0;
+    left: 0;
+  }
+
+  .card-descriptions p {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.1px;
+  }
+  .card-descriptions {
+    width: 100%;
+  }
+  /* .container-collections {
+    width: 70%;
+    height: 6em;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+  } */
+
+  .container-collections {
+    width: 58%;
+    height: 6em;
+    position: relative;
+    /* border: 1px solid; */
+    padding: 8px 0;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: transparent;
+    gap: 0;
+  }
+
+  .container-collections h2 {
+    top: 0;
+    width: max-content;
+    font-size: 10çpx;
+    color: rgba(71, 71, 71, 1);
+    position: absolute;
+  }
+
+  .card-calcas,
+  .card-camisas,
+  .card-fones,
+  .card-tenis {
+    width: 19%;
+    height: 70%;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .card-calcas h3,
+  .card-camisas h3,
+  .card-fones h3,
+  .card-tenis h3 {
+    font-size: 10.2px;
+    font-weight: lighter;
+  }
+
+  .calcas-title,
+  .tenis-title,
+  .fones-title,
+  .camisas-title {
+    width: 100%;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+  }
+  .calcas-title img,
+  .fones-title img,
+  .tenis-title img,
+  .camisas-title img {
+    width: 100;
+    height: 100%;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .card-ver-mais {
+    margin-top: 10px;
+  }
+}
+@media (min-width: 501px) {
+  .container-products {
+    width: 100%;
+    justify-content: space-around;
+    gap: 4px 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+    /* margin: 0 10px; */
+  }
+  .card-products {
+    height: max-content;
+    width: calc(25% - 30px);
+    padding: 3px;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .card-image {
+    padding: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .card-products img {
+    height: auto;
+    width: 100%;
+  }
+  .pi-cart-minus,
+  .pi-cart-plus {
+    font-size: 15px;
+    position: absolute;
+    right: -5px;
+    bottom: -26px;
+  }
+
+  .card-titles {
+    padding-left: 2px;
+    font-size: 14px;
+  }
+
+  .card-prices p {
+    font-size: 13px;
+  }
+  .card-prices {
+    gap: 2px;
+    width: max-content;
+    padding-left: 3px;
+  }
+
+  .card-disccount {
+    display: flex;
+    width: 67px;
+    height: 20px;
+    font-size: 13px;
+    padding: 5px;
+    top: 12px;
+    left: 14px;
+  }
+
+  .card-descriptions p {
+    width: 100%;
+    font-family: Inter;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-descriptions {
+    width: 100%;
+  }
+
+  .container-collections h2 {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .container-collections {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .card-calcas,
+  .card-camisas,
+  .card-fones,
+  .card-tenis {
+    width: 15%;
+    height: 70%;
+    padding: 5px;
+    margin: 0 2px;
+  }
+
+  .card-calcas h3,
+  .card-camisas h3,
+  .card-fones h3,
+  .card-tenis h3 {
+    font-size: 11.2px;
+    letter-spacing: 0.19px;
+    font-weight: lighter;
+  }
+
+  .calcas-title,
+  .tenis-title,
+  .fones-title,
+  .camisas-title {
+    width: 60%;
+    height: 70%;
+    padding: 0;
+    margin: 0;
+  }
+  .calcas-title img,
+  .fones-title img,
+  .tenis-title img,
+  .camisas-title img {
+    width: 100;
+    height: 100%;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .card-ver-mais {
+    margin-top: 10px;
+  }
+
+  .container-produtosemalta {
+    width: 100%;
+    padding: 0 2.6em;
+    justify-content: space-between;
+    display: flex;
+  }
+  .container-produtosemalta h3,
+  .link-vermais-global {
+    width: max-content;
+    font-size: 15px;
+  }
+}
+@media (min-width: 800px) {
+  .container-products {
+    width: 100%;
+    justify-content: space-around;
+    gap: 4px 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+    /* margin: 0 10px; */
+  }
+  .card-products {
+    height: max-content;
+    width: calc(20% - 30px);
+    padding: 3px;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .card-image {
+    padding: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .card-products img {
+    height: auto;
+    width: 100%;
+  }
+  .pi-cart-minus,
+  .pi-cart-plus {
+    font-size: 15px;
+    position: absolute;
+    right: -5px;
+    bottom: -26px;
+  }
+
+  .card-titles {
+    padding-left: 2px;
+    font-size: 14px;
+  }
+
+  .card-prices p {
+    font-size: 13px;
+  }
+  .card-prices {
+    gap: 2px;
+    width: max-content;
+    padding-left: 3px;
+  }
+
+  .card-disccount {
+    display: flex;
+    width: 67px;
+    height: 20px;
+    font-size: 13px;
+    padding: 5px;
+    top: 12px;
+    left: 14px;
+  }
+
+  .card-descriptions p {
+    width: 100%;
+    font-family: Inter;
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 0.65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid; */
+  }
+
+  .card-descriptions {
+    width: 100%;
+  }
+
+  .container-collections h2 {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .container-collections {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .card-calcas,
+  .card-camisas,
+  .card-fones,
+  .card-tenis {
+    width: 15%;
+    height: 70%;
+    padding: 5px;
+    margin: 0 2px;
+  }
+
+  .card-calcas h3,
+  .card-camisas h3,
+  .card-fones h3,
+  .card-tenis h3 {
+    font-size: 11.2px;
+    letter-spacing: 0.19px;
+    font-weight: lighter;
+  }
+
+  .card-calcas:hover,
+  .card-camisas:hover,
+  .card-fones:hover,
+  .card-tenis:hover {
+    border: 1px solid;
+  }
+
+  .calcas-title,
+  .tenis-title,
+  .fones-title,
+  .camisas-title {
+    width: 60%;
+    height: 70%;
+    padding: 0;
+    margin: 0;
+  }
+  .calcas-title img,
+  .fones-title img,
+  .tenis-title img,
+  .camisas-title img {
+    width: 100;
+    height: 100%;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .card-ver-mais {
+    margin-top: 10px;
+  }
+
+  .container-produtosemalta {
+    width: 100%;
+    padding: 0 2.6em;
+    justify-content: space-between;
+    display: flex;
+  }
+  .container-produtosemalta h3,
+  .link-vermais-global {
+    width: max-content;
+    font-size: 15px;
+  }
+}

@@ -351,10 +351,9 @@
     gap: 4px 5px;
     margin-top: 5px;
     padding-top: 5px;
-    /* margin: 0 10px; */
   }
   .card-products {
-    height: max-content;
+    height: 2px;
     width: calc(25% - 30px);
     padding: 3px;
     border-radius: 0;

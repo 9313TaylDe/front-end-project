@@ -15,7 +15,7 @@ const Footer = (informacoes, redesSociais, endereco) => {
       { about: "Trabalhe conosco", link: "#" },
       { about: "Meus pedidos", link: "#" },
     ],
-    redesSociais: [
+    categorias: [
       { tituloSociais: "Categorias" },
       { sociais: "Camisetas", icone: "camisetas", link: "#" },
       { sociais: "Calças", icone: "calcas", link: "#" },
@@ -64,8 +64,8 @@ const Footer = (informacoes, redesSociais, endereco) => {
             return (
               <div className="infoss">
                 <h3 className="titulo-infos">{abouts.titulo}</h3>
-                <p className="links-infos" key={abouts.link} to={abouts.link}>
-                  {abouts.about}
+                <p className="links-sociais" key={abouts.link} to={abouts.link}>
+                  <a href="#"> {abouts.about}</a>{" "}
                 </p>
               </div>
             );
@@ -73,12 +73,12 @@ const Footer = (informacoes, redesSociais, endereco) => {
         </div>
 
         <div className="footer-sociais">
-          {InformacoesFooter.redesSociais.map((redes) => {
+          {InformacoesFooter.categorias.map((categorys) => {
             return (
               <div className="">
-                <h3>{redes.tituloSociais}</h3>
+                <h3>{categorys.tituloSociais}</h3>
                 <p className="links-sociais" to="">
-                  <a href="#">{redes.sociais}</a>
+                  <a href="#">{categorys.sociais}</a>
                 </p>
               </div>
             );
@@ -90,9 +90,9 @@ const Footer = (informacoes, redesSociais, endereco) => {
               <div className="adress">
                 <h3>{adresses.titulo}</h3>
                 <p> {adresses.tituloEnderecos}</p>
-                <p className="link-telefone" to="#">
+                <p className="links-sociais" to="#">
                   {" "}
-                  {adresses.telefone}
+                  <a href="#"> {adresses.telefone}</a>{" "}
                 </p>
               </div>
             );

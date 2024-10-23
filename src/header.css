@@ -4,11 +4,7 @@
   box-sizing: border-box;
   text-decoration: none;
 }
-.menu-mobile {
-  position: absolute;
-  right: 0px;
-  visibility: hidden;
-}
+
 header {
   display: flex;
   width: 100%;
@@ -67,22 +63,28 @@ input:focus {
   cursor: pointer;
 }
 
-.button-user {
+.container-user {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 1em;
 }
 
 .login {
-  width: 114px;
-  height: 3.2em;
+  width: 80px;
+  height: 2em;
+  font-size: 13px;
   opacity: 0px;
   background-color: #c92071;
   border-radius: 12px;
 }
-
-#login {
-  color: white;
+.cadastre {
+  width: 75px;
+  height: 2em;
+  font-size: 13px;
+  opacity: 0px;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 12px;
 }
 
 .container-navegacao-principal {
@@ -98,7 +100,7 @@ input:focus {
 }
 
 .link {
-  font-size: 17px;
+  font-size: 13px;
 }
 .link:focus {
   border-bottom: 1px solid #c92071;
@@ -117,6 +119,15 @@ input:focus {
   position: relative;
 }
 
+.menu-mobile {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 0;
+  width: 0;
+  display: none;
+}
+
 .circuloNotificacao {
   position: absolute;
   right: 0;
@@ -132,40 +143,180 @@ input:focus {
   color: gold;
 }
 
-@media (max-width: 500px) {
+@media (min-width: 360px) and (max-width: 641px) {
+  header {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .logo-header,
+  .logo-header img {
+    height: 16px;
+    font-size: 7px;
+  }
+
+  .input {
+    width: 50%;
+    padding: 0;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .pi-search {
+    bottom: 6px;
+    right: 6px;
+    font-size: 13px;
+  }
+
+  input {
+    font-size: 13px;
+    height: 2em;
+    width: 100%;
+  }
+
+  .container-user {
+    display: none;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .login {
+    width: max-content;
+    height: max-content;
+    padding: 1px 3px;
+    display: flex;
+    opacity: 0px;
+    /* border-radius: 10px; */
+  }
+
+  .container-navegacao-principal {
+    width: 100%;
+    display: flex;
+    height: max-content;
+  }
+
+  .navegacao-principal {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .link {
+    font-size: 12px;
+  }
+
+  .menu-mobile {
+    position: absolute;
+    right: 0;
+    top: 62px;
+    visibility: visible;
+    display: flex;
+    height: 30%;
+    width: 40%;
+    z-index: 1000;
+  }
+
+  .container-open-menu {
+    display: flex;
+    align-items: center;
+    width: 10%;
+    height: 20%;
+    background-color: blue;
+    border-radius: 15px 0 0 15px;
+    cursor: pointer;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+  }
+
+  .pi-angle-left {
+    right: -3px;
+    font-size: 24px;
+    position: absolute;
+  }
+  .pi-times {
+    top: 40%;
+    left: -17px;
+    width: 17px;
+    height: 30px;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    background-color: red;
+    position: absolute;
+  }
+  .div-menu-mobile {
+    height: 100%;
+    width: 100%;
+    background-color: lightcoral;
+    border-radius: 15px 0 0 15px;
+  }
+
+  /* .input .logo-header .container-header header; */
+}
+
+@media (min-width: 810px) and (max-width: 1080px) {
   header {
     width: 100%;
   }
   .logo-header,
   .logo-header img {
-    height: 23px;
+    height: 20px;
     font-size: 10px;
   }
 
   .input {
     width: 50%;
     padding: 0;
-    border: 1px solid;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 
   .pi-search {
-    right: 0;
+    bottom: 6px;
+    right: 6px;
   }
 
   input {
-    border: 1px solid;
     height: 2em;
     width: 100%;
   }
 
   .button-user {
-    display: flex;
-    flex-direction: column;
-    z-index: 100px;
-    right: 0;
-    position: absolute;
     width: max-content;
-    visibility: hidden;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid; */
+  }
+
+  .login {
+    width: max-content;
+    height: max-content;
+    padding: 1px 3px;
+    display: flex;
+    opacity: 0px;
+    /* border-radius: 10px; */
+  }
+
+  .link-login {
+    width: 100%;
+    background-color: red;
+  }
+
+  .new-account {
+    width: 10px;
+    border: 1x solid;
+  }
+
+  #login {
+    color: white;
   }
 
   .container-navegacao-principal {
@@ -187,14 +338,24 @@ input:focus {
     font-size: 12px;
   }
 
-  .card-menu-mobile {
-    height: 10em;
-    width: 10em;
-  }
   .menu-mobile {
     visibility: visible;
-    top: 3px;
-    right: 0;
+    height: max-content;
+    width: max-content;
+  }
+
+  .container-open-menu {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: max-content;
+    position: relative;
+  }
+  .div-menu-mobile {
+    height: max-content;
+    width: max-content;
+    background-color: lightcoral;
+    border-radius: 15px 0 0 15px;
   }
 
   /* .input .logo-header .container-header header; */

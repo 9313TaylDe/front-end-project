@@ -21,12 +21,14 @@ const Header = () => {
           <input type="text" placeholder="Procurar produto" />
           <i className="pi pi-search" id="search-peatch"></i>
         </div>
-        <div className="button-user ">
-          <Links id="new-account" font="12px" color="red">
-            Cadastre-se
-          </Links>
+        <div className="container-user">
+          <button className="cadastre">
+            <Links width="max-content" color=" #c92071">
+              Cadastre-se
+            </Links>
+          </button>
           <button className="login">
-            <Links className="link-vermais" font="12px" color="red">
+            <Links width="max-content" color="white">
               Entrar
             </Links>
           </button>
@@ -40,15 +42,33 @@ const Header = () => {
         </div>
         <MenuNavegacao />
       </div>
-      <button className="menu-mobile" onClick={toggleMenu}>
+      <div className="menu-mobile" onClick={toggleMenu}>
         {isOpen ? (
-          <div className="card-menu-mobile" onClick={toggleMenu}>
-            <button onClick={toggleMenu}>olá</button>
-          </div>
+          <>
+            <i className="pi pi-times"></i>
+            <div className="div-menu-mobile" onClick={toggleMenu}>
+              <Links
+                className="new-account2"
+                font="10px"
+                width="max-content"
+                color=" #c92071"
+                back
+              >
+                Cadastre-se
+              </Links>
+              <button className="login2">
+                <Links className="link-login2" font="10px" color="white">
+                  Entrar
+                </Links>
+              </button>
+            </div>{" "}
+          </>
         ) : (
-          <i className="pi pi-bars" onClick={toggleMenu}></i>
+          <div className="container-open-menu">
+            <i className="pi pi-angle-left" onClick={toggleMenu}></i>
+          </div>
         )}
-      </button>
+      </div>
     </header>
   );
 };

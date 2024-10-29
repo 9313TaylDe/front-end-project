@@ -1074,7 +1074,7 @@
   }
 
   .button {
-    width: 60px;
+    width: 85px;
     height: 28px;
     background-color: rgb(245, 245, 245);
     color: #c72091;
@@ -1083,7 +1083,8 @@
     bottom: 8px;
     left: 0.1em;
     font-weight: 900;
-    font-size: 18px;
+    font-size: 13px;
+    padding: 0 2px;
   }
   .button:hover {
     background-color: #c72091;

@@ -6,6 +6,8 @@ import "../Home.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CollectProducts2 from "../components/CollectionsProducts2";
+import ProductCirlce from "../components/ProductCircle";
+import CollectionsProducts3 from "../components/CollectionProducts3";
 const Home = () => {
   const [isSmall, seIsSmall] = useState();
 
@@ -13,7 +15,8 @@ const Home = () => {
   return (
     <>
       <div className="div-home">
-        <Header />
+        {/* <Header /> */}
+        <CollectionsProducts3 />
         <CollectProducts2 />
         <CollectionProducts1 />
         <div className="container-produtosemalta">
@@ -23,7 +26,8 @@ const Home = () => {
           </Link>
         </div>
         <Products />
-        <Footer />
+        {/* <Footer /> */}
+        <ProductCirlce />
       </div>
     </>
   );

@@ -3,13 +3,15 @@ import CardProducts from "./CardProducts";
 import "primeicons/primeicons.css";
 import "../Product.css";
 import { useContext, useState } from "react";
-import { set } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartProvider";
+
 const Products = () => {
   const [visibleCounts, setVisibleCounts] = useState(4);
-  // const [cart, addToCart, removeFromCart] = useContext(CartContext)
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
+
   const IsProductInCart = (productId) => {
-    return CardProducts.some((item) => item.id === productId);
+    return cart.some((item) => item.id === productId);
   };
 
   const LoadMore = () => {
@@ -23,12 +25,17 @@ const Products = () => {
     <div className="container-products">
       {ListaProducts.slice(0, visibleCounts).map((produto) => (
         <CardProducts
+          key={produto.id}
+          id={produto.id}
           nome={produto.nome}
           model={produto.model}
           image={produto.image}
           price={produto.price}
           new_price={produto.new_price}
           disccount={produto.disccount}
+          isAdded={IsProductInCart(produto.id)}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
         />
       ))}
       <div className="card-ver-mais">

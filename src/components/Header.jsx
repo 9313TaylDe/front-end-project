@@ -22,16 +22,36 @@ const Header = () => {
           <i className="pi pi-search" id="search-peatch"></i>
         </div>
         <div className="container-user">
-          <button className="cadastre">
-            <Links width="max-content" color=" #c92071">
-              Cadastre-se
-            </Links>
-          </button>
-          <button className="login">
-            <Links width="max-content" color="white">
-              Entrar
-            </Links>
-          </button>
+          <Links
+            width="max-content"
+            height="30px"
+            borderradius="13px"
+            font="12px"
+            color_hover="#c92071"
+            color="#c92071"
+            backgroundColor="white"
+            border_b="0.001px solid"
+            border="none"
+            heightt="max-content"
+            padding="0 5px"
+          >
+            Cadastre-se
+          </Links>
+
+          <Links
+            width="100%"
+            height="30px"
+            borderradius="10px"
+            color_hover="#c92071"
+            color="white"
+            backgroundColor_hover="white"
+            backgroundColor="#c91071"
+            border="none"
+            border_b="0.001px solid"
+            heightt="max-content"
+          >
+            Entrar
+          </Links>
         </div>
         <div className="container-cart">
           <Link className="pi pi-shopping-cart" to="#"></Link>
@@ -49,18 +69,36 @@ const Header = () => {
             <div className="div-menu-mobile" onClick={toggleMenu}>
               <Links
                 className="new-account2"
-                font="10px"
+                font="12px"
                 width="max-content"
+                height="50%"
+                borderradius="10px"
+                border="none"
+                border_b="none"
+                backgroundColor_hover="black"
                 color=" #c92071"
-                back
+                color_hover="white"
+                fontWeight="900"
+                padding="2.8px"
               >
                 Cadastre-se
               </Links>
-              <button className="login2">
-                <Links className="link-login2" font="10px" color="white">
-                  Entrar
-                </Links>
-              </button>
+
+              <Links
+                className="link-login2"
+                width="60px"
+                height="50%"
+                borderradius="10px"
+                backgroundColor="black"
+                font="12px"
+                color="white"
+                color_hoer="#c92071"
+                border="none"
+                border_b="none"
+                fontWeight="900"
+              >
+                Entrar
+              </Links>
             </div>{" "}
           </>
         ) : (

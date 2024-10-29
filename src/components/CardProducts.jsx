@@ -1,6 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import product from "../assets/product.png";
 import "../Product.css";
+import { CartContext } from "./CartProvider";
+import ProductDetails from "./ProductDetails";
 import { useContext, useEffect, useState } from "react";
 const CardProducts = ({
   nome,
@@ -10,19 +12,20 @@ const CardProducts = ({
   price,
   new_price,
   disccount,
-  products = [],
   addToCart,
   removeFromCart,
+  products = [],
 }) => {
-  // const {cart} = useContext(CartContext)
-  const [isAdd, setIsAdded] = useState(false);
-  const [Suggestions, setSuggestions] = useState([]);
+  const { cart } = useContext(CartContext);
+  const [isAdded, setIsAdded] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const productInCart = cart.some((product) => product.id === id);
-  //   setIsAdded(productInCart);
-  // }, [id, cart]);
+  const handleClickDetails = () => {};
+
+  useEffect(() => {
+    const productInCart = cart.some((product) => product.id === id);
+    setIsAdded(productInCart);
+  }, [id, cart]);
 
   const HandleAddToCart = () => {
     addToCart({
@@ -43,8 +46,7 @@ const CardProducts = ({
   };
 
   const HandlePageClick = () => {
-    navigate(`/product/${id}`);
-    setSuggestions([]);
+    navigate(`/product/${id}/`);
   };
   return (
     <div className="card-products">
@@ -52,7 +54,7 @@ const CardProducts = ({
         <p className="card-disccount">{disccount}% OFF</p>
         <img src={product} alt="imagem do produto" />
       </div>
-      <p className="card-titles">{nome}</p>
+      <p className="card-title">{nome}</p>
       <div className="card-descriptions">
         <p className="card-model">{model}</p>
       </div>
@@ -61,17 +63,14 @@ const CardProducts = ({
         <p className="new-price">{new_price}</p>
       </div>
       <>
-        {setIsAdded ? (
-          <Link
-            to="/cart"
-            onClick={HandleAddToCart}
-            className="pi pi-cart-plus"
-          ></Link>
-        ) : (
+        <i className="pi pi-info-circle" onClick={HandlePageClick}></i>
+        {isAdded ? (
           <Link
             onClick={HandleRemoveFromCart}
             className="pi pi-cart-minus"
           ></Link>
+        ) : (
+          <Link onClick={HandleAddToCart} className="pi pi-cart-plus"></Link>
         )}
       </>
     </div>

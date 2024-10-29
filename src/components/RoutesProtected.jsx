@@ -1,8 +1,8 @@
 import { useAuth } from "./AuthProvider";
 import { Navigate } from "react-router-dom";
 const RouteProtected = ({ element }) => {
-  const { authentication } = useAuth();
-
+  const authContext = useAuth();
+  const authentication = authContext?.authentication;
   if (authentication) {
     return element;
   } else {

@@ -14,7 +14,7 @@ const CollectProducts2 = ({ disccount }) => {
             Supreme
           </h1>
 
-          <button className="button">cllick</button>
+          <button className="button">Ver oferta</button>
         </div>
         <img className="img1-container2" src={camisas} alt="" />
       </div>
@@ -26,7 +26,7 @@ const CollectProducts2 = ({ disccount }) => {
             <br />
             Adidas
           </h1>
-          <button className="button">cllick</button>
+          <button className="button">Ver oferta</button>
         </div>
 
         <img className="img2-container2" src={fones} alt="" />
@@ -39,7 +39,7 @@ const CollectProducts2 = ({ disccount }) => {
             Beats Bass
           </h1>
 
-          <button className="button">cllick</button>
+          <button className="button">Ver oferta</button>
         </div>
         <img className="img3-container2" src={tenis} alt="" />
       </div>

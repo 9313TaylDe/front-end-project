@@ -3,7 +3,7 @@ import product from "../assets/product.png";
 import "../Product.css";
 import { CartContext } from "./CartProvider";
 import ProductDetails from "./ProductDetails";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 const CardProducts = ({
   nome,
   id,
@@ -46,6 +46,11 @@ const CardProducts = ({
   const HandlePageClick = () => {
     navigate(`/product/${id}/`);
   };
+
+  const topoRef = useRef(null);
+  const scrollTop = () => {
+    topoRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="card-products">
       <div className="card-image">
@@ -61,7 +66,11 @@ const CardProducts = ({
         <p className="new-price">{new_price}</p>
       </div>
       <>
-        <i className="pi pi-info-circle" onClick={HandlePageClick}></i>
+        <i
+          className="pi pi-info-circle"
+          onClick={HandlePageClick}
+          href="#header"
+        ></i>
         {isAdded ? (
           <Link
             onClick={HandleRemoveFromCart}

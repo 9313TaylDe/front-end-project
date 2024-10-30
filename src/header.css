@@ -148,7 +148,7 @@ input:focus {
   border-radius: 10px;
   border: none;
 }
-@media (min-width: 100px) and (max-width: 281px) {
+@media (min-width: 100px) and (max-width: 299px) {
   .container-header {
     padding: 10px;
     padding-top: 1em;
@@ -314,9 +314,14 @@ input:focus {
 
 @media (min-width: 300px) and (max-width: 429px) {
   .container-header {
-    position: relative;
+    padding: 10px;
+    padding-top: 1em;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
   }
-
   header {
     width: 100%;
     justify-content: space-between;
@@ -328,7 +333,7 @@ input:focus {
   }
 
   .input {
-    width: 50%;
+    width: 47%;
     padding: 0;
     border-radius: 100%;
     justify-content: center;
@@ -381,7 +386,7 @@ input:focus {
 
   .menu-mobile {
     position: absolute;
-    top: 11px;
+    top: 41px;
     right: 0;
     font-size: 1em;
     visibility: visible;
@@ -423,8 +428,8 @@ input:focus {
   }
 
   .pi-angle-left {
-    height: 30px;
-    width: 20px;
+    height: 25px;
+    width: 13px;
     display: flex;
     align-items: center;
   }

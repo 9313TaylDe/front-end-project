@@ -2,14 +2,44 @@ import logo from "../assets/Vector.png";
 import circuloNotificacao from "../assets/Ellipse.png";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../header.css";
 import { Link } from "react-router-dom";
 import MenuNavegacao from "./MenuNavegacao";
 import Links from "./Links";
+import Products from "./Products";
+import ListaProducts from "./ListaProducts";
+import { useContext } from "react";
+import { CartContext } from "./CartProvider";
+import CartProvider from "./CartProvider";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState();
   const toggleMenu = () => setIsOpen(!isOpen);
+  const [isAdd, setIsAdded] = useState(false);
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
+  const [itemCount, setItemCount] = useState(0);
+
+  useEffect(() => {
+    setItemCount(cart.length);
+  }, [cart]);
+  const IsProductInCart = (productId) => {
+    return cart.some((item) => item.id === productId);
+  };
+
+  const HandleAddToCart = () => {
+    addToCart({
+      id,
+      nome,
+      model,
+      price,
+      new_price,
+      image,
+      disccount,
+    });
+    setIsAdded(true);
+  };
+
   return (
     <header>
       <div className="container-header">
@@ -57,7 +87,7 @@ const Header = () => {
           <Link className="pi pi-shopping-cart" to="#"></Link>
           <img className="circuloNotificacao" src={circuloNotificacao} alt="" />
           <span>
-            <p className="informations">1</p>
+            <i className="informations">{itemCount}</i>
           </span>
         </div>
         <MenuNavegacao />

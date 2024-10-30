@@ -6,7 +6,6 @@ const CartProvider = ({ children }) => {
   const [products, setProducts] = useState([]); // Inicializa o array de produtos vazio
   const [cart, setCart] = useState([]); // Estado do carrinho
 
-  // Carrega produtos e carrinho salvos no localStorage
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -29,17 +28,14 @@ const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // Salva produtos no localStorage quando são atualizados
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
 
-  // Salva o carrinho no localStorage quando é atualizado
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // Adiciona um produto ao carrinho
   const addToCart = useCallback((product) => {
     if (product && product.id) {
       setCart((prevCart) => [...prevCart, product]);
@@ -48,12 +44,10 @@ const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // Remove um item do carrinho pelo ID
   const removeFromCart = useCallback((id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   }, []);
 
-  // Limpa o carrinho
   const cleanCart = useCallback(() => {
     setCart([]);
   }, []);

@@ -286,7 +286,7 @@
   background-color: red;
 }
 
-@media (min-width: 300px) and (max-width: 428px) {
+@media (min-width: 100px) and (max-width: 281px) {
   .container-products {
     width: 100%;
     height: 100%;
@@ -294,13 +294,11 @@
   }
 
   .card-products {
-    width: calc(25% - 6px);
+    width: calc(33% - 2px);
     height: max-content;
     display: flex;
     flex-wrap: wrap;
     padding: 0 2px;
-    border-left: 1px solid;
-    border-right: 1px solid;
   }
 
   .card-products img {
@@ -344,19 +342,19 @@
     font-family: Inter;
     font-size: 8px;
     font-weight: 900;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.16px;
     color: #474747;
     width: 100%;
   }
 
   .card-disccount {
-    width: 45px;
+    width: 35px;
     height: 20px;
     padding: 1px;
-    font-size: 9px;
+    font-size: 7px;
     font-weight: 900;
     left: 0.5em;
-    top: 0.7em;
+    top: 0.3em;
   }
 
   .pi-info-circle {
@@ -372,6 +370,84 @@
     bottom: 8px;
     right: 8px;
     position: absolute;
+  }
+
+  .containerpai-collection3 {
+    width: 100%;
+    min-height: 20%;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container-collection3 {
+    border-radius: 30%;
+    width: max-content;
+    height: 100%;
+    position: relative;
+  }
+
+  .container-p-collection3 p {
+    font-size: 12px;
+    width: 90%;
+  }
+
+  .container-p-collection3 h2 {
+    font-size: 16px;
+  }
+
+  .novo-beats,
+  .novo-beats2 {
+    position: absolute;
+    font-size: 7px;
+    font-weight: bolder;
+    letter-spacing: 0.9px;
+    bottom: 40%;
+    left: 0.2em;
+    width: max-content;
+  }
+
+  .novo-beats3 {
+    position: absolute;
+    font-size: 9x;
+    letter-spacing: 1.4px;
+    bottom: 40%;
+    left: 0.2em;
+    width: max-content;
+  }
+
+  .card-disccount2 {
+    background-color: #e7ff86;
+    width: 50px;
+    height: 19px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7%;
+    left: 0.2em;
+  }
+
+  .bolinhas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
+  .selected-images {
+    height: 170px;
+    width: 150px;
+    object-fit: fill;
+    border-radius: 100%;
+  }
+  #next {
+    height: 100%;
+    width: 13px;
+    border: 1px solid;
   }
 
   .containerpai-colllection2 {
@@ -439,16 +515,16 @@
   }
 
   .button {
-    width: 50px;
-    height: 30;
+    width: 70px;
+    height: 20px;
     background-color: rgb(245, 245, 245);
     color: #c72091;
-    border-radius: 4px;
+    border-radius: 6px;
     position: absolute;
     bottom: 8px;
     left: 0.2em;
     font-weight: 900;
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .button:hover {
@@ -541,8 +617,432 @@
     width: max-content;
     font-size: 13px;
   }
+
+  .container-jordan {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+    transition: 3s ease-in-out;
+  }
+  .card-img-jordan {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .circletenisjordan {
+    width: 75%;
+    height: 100%;
+    border-radius: 100%;
+  }
+  .imgjordan {
+    position: absolute;
+    border-radius: 20%;
+    top: 0;
+    width: 85%;
+    height: 95%;
+  }
+
+  .card-p-jordan {
+    width: 40%;
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-p-jordan p {
+    font-size: 11px;
+  }
+  .card-p-jordan h1 {
+    font-size: 20px;
+  }
 }
-@media (min-width: 429px) and (max-width: 437px) {
+
+@media (min-width: 283px) and (max-width: 429px) {
+  .container-products {
+    width: 100%;
+    height: 100%;
+    padding: 3px 0;
+  }
+
+  .card-products {
+    width: calc(25% - 6px);
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 2px;
+  }
+
+  .card-products img {
+    width: 100%;
+    height: 75px;
+  }
+
+  .card-image {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-radius: 30%;
+    justify-content: center;
+  }
+
+  .card-products:hover {
+    transform: scale(1.02);
+    height: max-content;
+  }
+
+  .card-products:hover {
+    border: none;
+  }
+
+  .card-title {
+    font-size: 10px;
+  }
+
+  .card-prices {
+    width: max-content;
+    gap: 2px;
+    padding-left: 2px;
+  }
+
+  .new-price,
+  .old-price {
+    font-size: 10px;
+  }
+
+  .card-descriptions p {
+    font-family: Inter;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    color: #474747;
+    width: 100%;
+  }
+
+  .card-disccount {
+    width: 45px;
+    height: 20px;
+    padding: 1px;
+    font-size: 9px;
+    font-weight: 900;
+    left: 0.5em;
+    top: 0.3em;
+  }
+
+  .pi-info-circle {
+    font-size: 13px;
+    top: 4%;
+    right: 8px;
+    position: absolute;
+  }
+
+  .pi-cart-minus,
+  .pi-cart-plus {
+    font-size: 13px;
+    bottom: 8px;
+    right: 8px;
+    position: absolute;
+  }
+
+  .containerpai-collection3 {
+    width: 100%;
+    min-height: 20%;
+    padding: 2px;
+    display: flex;
+  }
+
+  .container-collection3 {
+    border-radius: 30%;
+    width: max-content;
+    height: 100%;
+    position: relative;
+  }
+
+  .container-p-collection3 p {
+    font-size: 10px;
+    /* width: max-content; */
+  }
+
+  .container-p-collection3 h2 {
+    font-size: 13px;
+  }
+
+  .novo-beats,
+  .novo-beats2 {
+    position: absolute;
+    font-size: 14px;
+    font-weight: bolder;
+    letter-spacing: 0.9px;
+    bottom: 40%;
+    left: 0.2em;
+    width: max-content;
+  }
+
+  .novo-beats3 {
+    position: absolute;
+    font-size: 14.3px;
+    letter-spacing: 1.4px;
+    bottom: 40%;
+    left: 0.2em;
+    width: max-content;
+  }
+
+  .card-disccount2 {
+    background-color: #e7ff86;
+    width: 50px;
+    height: 19px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7%;
+    left: 0.2em;
+  }
+
+  .bolinhas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
+  .selected-images {
+    height: 190px;
+    width: 190px;
+    object-fit: fill;
+    border-radius: 100%;
+  }
+  #next {
+    border: none;
+  }
+
+  .containerpai-colllection2 {
+    width: 98.7%;
+    height: 24%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0;
+    position: relative;
+  }
+
+  .container-collection2 {
+    width: calc(33% - 6px);
+    height: 100%;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(216, 227, 242, 1);
+  }
+
+  .container-collection2:hover {
+    transform: scale(1.001);
+    transition: 3s ease-in-out;
+  }
+
+  .card-1-collection2 {
+    width: 80%;
+    margin: 0;
+    padding: 1em 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img1-container2,
+  .img2-container2,
+  .img3-container2 {
+    width: 60%;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .novo-beats,
+  .novo-beats2 {
+    position: absolute;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 0.9px;
+    bottom: 35%;
+    left: 0.2em;
+    width: max-content;
+  }
+
+  .novo-beats3 {
+    position: absolute;
+    font-size: 12px;
+    border: 1px;
+    letter-spacing: 2px;
+    bottom: 35%;
+    left: 0.3em;
+    width: max-content;
+  }
+
+  .button {
+    width: 70px;
+    height: 20px;
+    background-color: rgb(245, 245, 245);
+    color: #c72091;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 8px;
+    left: 0.2em;
+    font-weight: 900;
+    font-size: 10px;
+  }
+
+  .button:hover {
+    background-color: #c72091;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .card-disccount2 {
+    background-color: #e7ff86;
+    width: 45px;
+    height: 14px;
+    border-radius: 10px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7%;
+    left: 0.2em;
+  }
+
+  .container-collections {
+    width: 50%;
+    height: max-content;
+    display: flex;
+    gap: 1px;
+    margin: 0;
+    justify-content: space-between;
+  }
+
+  .container-collections h2 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .card-calcas,
+  .card-tenis,
+  .card-camisas,
+  .card-fones {
+    margin: 0;
+    width: 18%;
+    height: 40px;
+    background-color: transparent;
+  }
+
+  .card-calcas h3,
+  .card-tenis h3,
+  .card-camisas h3,
+  .card-fones h3 {
+    width: 100%;
+    font-size: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tenis-title,
+  .fones-title,
+  .camisas-title,
+  .calcas-title {
+    height: 45px;
+    width: 40%;
+    padding: 3px;
+  }
+
+  .card-calcas img,
+  .card-tenis img,
+  .card-camisas img,
+  .card-fones img {
+    background-color: transparent;
+    width: max-content;
+    height: 100%;
+    padding: 1px;
+  }
+
+  .container-produtosemalta {
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 100%;
+    border: 1px solid;
+    padding: 0 1em;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  .container-produtosemalta h3,
+  .link-vermais-global {
+    width: max-content;
+    font-size: 13px;
+  }
+
+  .container-jordan {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+    transition: 3s ease-in-out;
+  }
+  .card-img-jordan {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .circletenisjordan {
+    width: 75%;
+    height: 100%;
+    border-radius: 100%;
+  }
+  .imgjordan {
+    position: absolute;
+    border-radius: 20%;
+    top: 0;
+    width: 85%;
+    height: 95%;
+  }
+
+  .card-p-jordan {
+    width: 40%;
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-p-jordan p {
+    font-size: 11px;
+  }
+  .card-p-jordan h1 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 430px) and (max-width: 437px) {
   .container-products {
     width: 100%;
     height: 100%;
@@ -993,6 +1493,61 @@
     font-size: 27px;
   }
 
+  .novo-beats,
+  .novo-beats2 {
+    position: absolute;
+    font-size: 14px;
+    font-weight: bolder;
+    letter-spacing: 0.9px;
+    bottom: 40%;
+    left: 0.2em;
+    width: max-content;
+  }
+
+  .novo-beats3 {
+    position: absolute;
+    font-size: 14.3px;
+    letter-spacing: 1.4px;
+    bottom: 40%;
+    left: 0.2em;
+    width: max-content;
+  }
+
+  .button {
+    width: 85px;
+    height: 28px;
+    background-color: rgb(245, 245, 245);
+    color: #c72091;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 8px;
+    left: 0.1em;
+    font-weight: 900;
+    font-size: 13px;
+    padding: 0 2px;
+  }
+
+  .button:hover {
+    background-color: #c72091;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .card-disccount2 {
+    background-color: #e7ff86;
+    width: 50px;
+    height: 19px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7%;
+    left: 0.2em;
+  }
+
   .bolinhas {
     display: flex;
     align-items: center;
@@ -1051,60 +1606,6 @@
     height: 140px;
     padding: 0;
     margin: 0;
-  }
-
-  .novo-beats,
-  .novo-beats2 {
-    position: absolute;
-    font-size: 14px;
-    font-weight: bolder;
-    letter-spacing: 0.9px;
-    bottom: 40%;
-    left: 0.2em;
-    width: max-content;
-  }
-
-  .novo-beats3 {
-    position: absolute;
-    font-size: 14.3px;
-    letter-spacing: 1.4px;
-    bottom: 40%;
-    left: 0.2em;
-    width: max-content;
-  }
-
-  .button {
-    width: 85px;
-    height: 28px;
-    background-color: rgb(245, 245, 245);
-    color: #c72091;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 8px;
-    left: 0.1em;
-    font-weight: 900;
-    font-size: 13px;
-    padding: 0 2px;
-  }
-  .button:hover {
-    background-color: #c72091;
-    color: #ffffff;
-    cursor: pointer;
-  }
-
-  .card-disccount2 {
-    background-color: #e7ff86;
-    width: 50px;
-    height: 19px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 7%;
-    left: 0.2em;
   }
 
   .container-collections {

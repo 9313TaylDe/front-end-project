@@ -20,8 +20,6 @@ const CardProducts = ({
   const [isAdded, setIsAdded] = useState(false);
   const navigate = useNavigate();
 
-  const handleClickDetails = () => {};
-
   useEffect(() => {
     const productInCart = cart.some((product) => product.id === id);
     setIsAdded(productInCart);

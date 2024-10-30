@@ -148,6 +148,79 @@ hr {
   border: 1px solid #404040;
 }
 
+@media (min-width: 100px) and (max-width: 281px) {
+  .left-side-footer {
+    width: 28%;
+    height: max-content;
+    padding: 2px 0;
+  }
+
+  .right-side-footer {
+    width: 62%;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+    height: 100%;
+  }
+
+  .right-side-footer p,
+  .right-side-footer a {
+    font-size: 6.5px;
+    font-weight: 400;
+  }
+
+  .right-side-footer h3 {
+    font-size: 8px;
+  }
+
+  /* .footer-adress,
+  .footer-infos,
+  .footer-sociais {
+    font-size: 5px;
+  } */
+
+  .logo-footer {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 20px;
+    gap: 2px;
+    margin-top: 3px;
+    margin-left: 1px;
+    margin-bottom: 0.9em;
+  }
+
+  .logo-footer img {
+    height: 13px;
+    width: 13px;
+  }
+  .logo-footer p {
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  .left-side-footer .paragrafo {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  * .container-redes-sociais {
+    display: flex;
+    gap: 9px;
+    width: max-content;
+    width: max-content;
+    height: ax;
+    margin-top: 1em;
+  }
+
+  .pi-facebook,
+  .pi-instagram,
+  .pi-twitter {
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    font-size: 10px;
+  }
+}
+
 @media (min-width: 300px) and (max-width: 400px) {
   .left-side-footer {
     width: 35%;

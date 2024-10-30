@@ -444,10 +444,21 @@
     object-fit: fill;
     border-radius: 100%;
   }
+
   #next {
-    height: 100%;
-    width: 13px;
-    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    right: 0;
+    top: 15.8%;
+  }
+
+  .pi-angle-right {
+    font-size: 1em;
   }
 
   .containerpai-colllection2 {
@@ -548,7 +559,7 @@
   }
 
   .container-collections {
-    width: 50%;
+    width: 70%;
     height: max-content;
     display: flex;
     gap: 1px;
@@ -566,7 +577,7 @@
   .card-camisas,
   .card-fones {
     margin: 0;
-    width: 18%;
+    width: 17%;
     height: 40px;
     background-color: transparent;
   }
@@ -666,7 +677,7 @@
   }
 }
 
-@media (min-width: 283px) and (max-width: 429px) {
+@media (min-width: 283px) and (max-width: 389px) {
   .container-products {
     width: 100%;
     height: 100%;
@@ -767,12 +778,18 @@
   }
 
   .container-p-collection3 p {
-    font-size: 10px;
-    /* width: max-content; */
+    font-size: 12px;
+    width: 100%;
   }
 
   .container-p-collection3 h2 {
-    font-size: 13px;
+    font-size: 23px;
+  }
+
+  .container-p-collection3 {
+    width: 100%;
+    height: max-content;
+    border: 1px solid;
   }
 
   .novo-beats,
@@ -818,13 +835,24 @@
   }
 
   .selected-images {
-    height: 190px;
-    width: 190px;
+    height: 200px;
+    width: 180px;
     object-fit: fill;
     border-radius: 100%;
   }
   #next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    right: 0;
+    top: 16.4%;
+  }
+  .pi-angle-right {
+    font-size: 1em;
   }
 
   .containerpai-colllection2 {
@@ -925,7 +953,7 @@
   }
 
   .container-collections {
-    width: 50%;
+    width: 69%;
     height: max-content;
     display: flex;
     gap: 1px;
@@ -1042,7 +1070,7 @@
     font-size: 20px;
   }
 }
-@media (min-width: 430px) and (max-width: 437px) {
+@media (min-width: 390px) and (max-width: 437px) {
   .container-products {
     width: 100%;
     height: 100%;
@@ -2711,7 +2739,6 @@
   .calcas-title {
     height: 65px;
     width: 60%;
-    /* background-color: red; */
     padding: 3px;
   }
 

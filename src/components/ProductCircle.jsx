@@ -10,19 +10,7 @@ const ProductCirlce = () => {
         <img className="imgjordan" src={teniseclipse} alt="" />
       </div>
       <div className="card-p-jordan">
-        <Links
-          border="none"
-          border_b="none"
-          backgroundColor="transparent"
-          backgroundColor_hover="transparent"
-          color="#c72091"
-          color_hover="#c72091"
-          font="10px"
-          width="max-content"
-          fontWeight="bold"
-        >
-          Oferta especial
-        </Links>
+        <a href="#">Oferta especial</a>
         <h1>Air Jordan edição de colecionador</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -30,17 +18,7 @@ const ProductCirlce = () => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip
         </p>
-        <Links
-          color_hover="#c72091"
-          width="65%"
-          font="12px"
-          padding="2px"
-          backgroundColor_hover="#ffff"
-          backgroundColor="#c72091"
-          color="#ffff"
-        >
-          Ver oferta
-        </Links>
+        <button className="button_oferta2">Ver oferta</button>
       </div>
     </section>
   );

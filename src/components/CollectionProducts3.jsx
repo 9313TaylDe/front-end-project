@@ -1,12 +1,12 @@
 import Links from "./Links";
 import image from "../assets/productcollection3.png";
-import image2 from "../assets/fones2.png";
+import circle_collection3 from "../assets/circle_collection3.png";
 import { useState } from "react";
 
 const CollectionsProducts3 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [image, image2, image2, image];
+  const images = [image, image];
 
   const handleNextImage = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -33,6 +33,7 @@ const CollectionsProducts3 = () => {
           src={images[currentIndex]}
           alt="Produto"
         />
+        <img className="circle_collection" src={circle_collection3} alt="" />
         <div className="w-full flex gap-2 align-content-center justify-content-center mt-2">
           {images.map((_, index) => (
             <img

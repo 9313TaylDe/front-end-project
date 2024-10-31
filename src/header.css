@@ -99,6 +99,7 @@ input:focus {
 }
 .link:focus {
   border-bottom: 1px solid #c92071;
+  color: #c92071;
 }
 
 .container-cart {
@@ -652,12 +653,30 @@ input:focus {
 
   .container-header {
     padding: 0 2em;
+    margin-bottom: 1.9em;
     padding-top: 1em;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .container-navegacao-principal {
+    display: flex;
+    margin-top: 1.4em;
+    width: 100%;
+  }
+
+  .navegacao-principal {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+  }
+
+  .link {
+    font-size: 17px;
+    font-weight: 600;
   }
 
   .logo-header {
@@ -691,7 +710,30 @@ input:focus {
   .container-user {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1em;
+    width: 20%;
+  }
+
+  .login {
+    width: 40%;
+    height: 30px;
+    font-size: 13px;
+    opacity: 0px;
+    background-color: #c92071;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .cadastre {
+    width: auto;
+    height: max-content;
+    padding: 0 3px;
+    font-size: 16px;
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+    border-radius: 12px;
   }
 
   .login2 {

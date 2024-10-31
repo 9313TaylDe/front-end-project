@@ -52,36 +52,11 @@ const Header = () => {
           <i className="pi pi-search" id="search-peatch"></i>
         </div>
         <div className="container-user">
-          <Links
-            width="max-content"
-            height="30px"
-            borderradius="13px"
-            font="12px"
-            color_hover="#c92071"
-            color="#c92071"
-            backgroundColor="white"
-            border_b="0.001px solid"
-            border="none"
-            heightt="max-content"
-            padding="0 5px"
-          >
+          <a href="#" className="cadastre">
             Cadastre-se
-          </Links>
+          </a>
 
-          <Links
-            width="100%"
-            height="30px"
-            borderradius="10px"
-            color_hover="#c92071"
-            color="white"
-            backgroundColor_hover="white"
-            backgroundColor="#c91071"
-            border="none"
-            border_b="0.001px solid"
-            heightt="max-content"
-          >
-            Entrar
-          </Links>
+          <button className="login">Entrar</button>
         </div>
         <div className="container-cart">
           <Link className="pi pi-shopping-cart" to="#"></Link>

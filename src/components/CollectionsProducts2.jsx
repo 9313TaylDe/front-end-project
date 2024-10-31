@@ -5,14 +5,15 @@ import Links from "./Links";
 const CollectProducts2 = ({ disccount }) => {
   return (
     <section className="containerpai-colllection2">
+      <h2 className="colecoes_collection2">Coleções em destaque</h2>
       <div className="container-collection2">
         <div className="card-1-collection2">
           <p className="card-disccount2">{}% OFF</p>
-          <h1 className="novo-beats">
+          <h2 className="novo-beats">
             Novo Drop
             <br />
             Supreme
-          </h1>
+          </h2>
 
           <button className="button">Ver oferta</button>
         </div>
@@ -21,11 +22,11 @@ const CollectProducts2 = ({ disccount }) => {
       <div className="container-collection2">
         <div className="card-1-collection2">
           <p className="card-disccount2">{}% OFF</p>
-          <h1 className="novo-beats2">
+          <h2 className="novo-beats2">
             Coleção
             <br />
             Adidas
-          </h1>
+          </h2>
           <button className="button">Ver oferta</button>
         </div>
 
@@ -34,10 +35,10 @@ const CollectProducts2 = ({ disccount }) => {
       <div className="container-collection2">
         <div className="card-1-collection2">
           <p className="card-disccount2">{}% OFF</p>
-          <h1 className="novo-beats3">
+          <h2 className="novo-beats3">
             Novo <br />
             Beats Bass
-          </h1>
+          </h2>
 
           <button className="button">Ver oferta</button>
         </div>

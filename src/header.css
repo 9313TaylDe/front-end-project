@@ -642,7 +642,7 @@ input:focus {
   }
 }
 
-@media (min-width: 902px) and (max-width: 1290px) {
+@media (min-width: 902px) and (max-width: 1279px) {
   header {
     display: flex;
     width: 100%;
@@ -744,6 +744,110 @@ input:focus {
     border: none;
   }
 }
+
+@media (min-width: 1281px) and (max-width: 1558px) {
+  header {
+    display: flex;
+    width: 100%;
+    min-height: 4em;
+    align-items: center;
+    background-color: #ffffff;
+  }
+
+  .container-header {
+    padding: 0 2em;
+    margin-bottom: 1.9em;
+    padding-top: 1em;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .container-navegacao-principal {
+    display: flex;
+    margin-top: 1.4em;
+    width: 100%;
+  }
+
+  .navegacao-principal {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+  }
+
+  .link {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .logo-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    width: max-content;
+  }
+
+  .logo-header img {
+    height: auto;
+  }
+
+  .input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input {
+    width: 30em;
+    height: 3.2em;
+    border-radius: 10px;
+    border: none;
+    padding: 2px 13px;
+    background-color: #f8f8f8;
+  }
+
+  .container-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    width: 20%;
+  }
+
+  .login {
+    width: 40%;
+    height: 30px;
+    font-size: 13px;
+    opacity: 0px;
+    background-color: #c92071;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .cadastre {
+    width: auto;
+    height: max-content;
+    padding: 0 3px;
+    font-size: 16px;
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+    border-radius: 12px;
+  }
+
+  .login2 {
+    width: 50%;
+    height: 50%;
+    background-color: transparent;
+    border-radius: 10px;
+    border: none;
+  }
+}
+
 @media (min-width: 1640px) {
   header {
     width: 100%;

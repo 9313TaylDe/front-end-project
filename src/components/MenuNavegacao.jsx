@@ -7,7 +7,7 @@ const MenuNavegacao = () => {
         <Link className="link" to="/">
           Home
         </Link>
-        <Link className="link" to="/home">
+        <Link className="link" to="/produtos">
           Produtos
         </Link>
         <Link className="link" to="/categorias">

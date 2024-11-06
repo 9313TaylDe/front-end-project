@@ -9,6 +9,8 @@ import CartProvider from "./components/CartProvider";
 import ProductDetails from "./components/ProductDetails";
 import Login from "./pages/Login";
 import ProductsListing from "./pages/ProductsListing";
+import Products from "./components/Products";
+import ProductsPage from "./pages/ProductsPage";
 const App = () => {
   return (
     <CartProvider>
@@ -63,6 +65,14 @@ const App = () => {
             }
           />
           <Route path="*" element={<NotFound />} />
+          <Route
+            path="/produtos"
+            element={
+              <Layout>
+                <ProductsPage />
+              </Layout>
+            }
+          />{" "}
         </Routes>
       }
     </CartProvider>

@@ -15,7 +15,6 @@ const Home = () => {
   return (
     <>
       <div className="div-home">
-        {/* <Header /> */}
         <CollectionsProducts3 />
         <CollectProducts2 />
         <CollectionProducts1 />
@@ -26,7 +25,6 @@ const Home = () => {
           </Link>
         </div>
         <Products />
-        {/* <Footer /> */}
         <ProductCirlce />
       </div>
     </>

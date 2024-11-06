@@ -6,7 +6,7 @@ const Routes = () => {
     <Router>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<RouteProtected element={<Home />} />} />
-      <Route path="/meus-pedidos" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="*" element={<NotFound />} />
     </Router>
   );

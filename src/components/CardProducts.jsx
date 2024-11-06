@@ -62,8 +62,8 @@ const CardProducts = ({
         <p className="card-model">{model}</p>
       </div>
       <div className="card-prices">
-        <p className="old-price">{price}</p>
-        <p className="new-price">{new_price}</p>
+        <p className="old-price">R${price}</p>
+        <p className="new-price">R${new_price}</p>
       </div>
       <>
         <i

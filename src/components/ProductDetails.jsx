@@ -76,13 +76,15 @@ const ProductDetails = ({ background }) => {
         <div className="descriptions-product">
           <p className="model">{productItem.model}</p>
           <div className="rating">
+            {
+              <i className="pi pi-star">
+                {" "}
+                <p id="result"></p>
+              </i>
+            }
             <button className="button-rating" onClick={ratingValues}>
-              Avaliar
+              Avaliar{" "}
             </button>
-            <i className="pi pi-star">
-              {" "}
-              <p id="result"></p>
-            </i>
 
             <input type="radio" id="star5" name="rating" value="5" />
             <label htmlFor="star5">&#9733;</label>

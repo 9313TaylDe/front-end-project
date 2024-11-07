@@ -1,5 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { CartContext } from "./CartProvider";
+import { useEffect } from "react";
 import ListaProducts from "./ListaProducts";
 import image from "../assets/product.png";
 import image2 from "../assets/product.png";
@@ -20,6 +23,29 @@ const ProductDetails = ({ background }) => {
     "miniatura-orange",
     "miniatura-coral",
   ];
+
+  const { cart, addToCart } = useContext(CartContext);
+  const [isAdded, setIsAdded] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const productInCart = cart.some((product) => product.id === id);
+    setIsAdded(productInCart);
+  }, [id, cart]);
+
+  const HandleAddToCart = () => {
+    addToCart({
+      id: productItem.id,
+      nome: productItem.nome,
+      model: productItem.model,
+      price: productItem.price,
+      new_price: productItem.new_price,
+      image: productItem.image,
+      disccount: productItem.discount,
+    });
+    setIsAdded(true);
+  };
+
   const colorsClass = colors[currentIndex % colors.length];
 
   const [star, setStar] = useState(0);
@@ -119,7 +145,9 @@ const ProductDetails = ({ background }) => {
             <label htmlFor="41">41</label>
             <input type="checkbox" id="42" name="quarenta-e-dois" value="42" />
             <label htmlFor="42">42</label>
-            <button className="button-buy">COMPRAR</button>
+            <button className="button-buy" onClick={HandleAddToCart}>
+              COMPRAR
+            </button>
           </div>
         </div>
       </div>

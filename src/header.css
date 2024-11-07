@@ -448,8 +448,12 @@ input:focus {
   }
 }
 @media (min-width: 430px) and (max-width: 896px) {
+  .container-header {
+    padding: 1em;
+  }
   header {
     width: 100%;
+    padding: 0;
     justify-content: space-between;
   }
   .logo-header,
@@ -491,6 +495,7 @@ input:focus {
     width: 100%;
     display: flex;
     height: max-content;
+    margin-top: 10px;
   }
 
   .navegacao-principal {
@@ -513,7 +518,7 @@ input:focus {
   .menu-mobile {
     position: absolute;
     right: 0;
-    top: 9px;
+    top: 59px;
     font-size: 1.2em;
     visibility: visible;
     display: flex;

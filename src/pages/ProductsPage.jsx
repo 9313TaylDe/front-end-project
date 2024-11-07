@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react"; // Certifique-se de que useState está importado
 import ListaProducts from "../components/ListaProducts";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useEffect } from "react";
+import { CartContext } from "../components/CartProvider";
 import image from "../assets/tenispageproducts.png";
 import image2 from "../assets/product.png";
 import image3 from "../assets/product.png";
@@ -22,7 +26,6 @@ const ProductDetails = ({ background }) => {
     "miniatura-coral",
   ];
   const colorsClass = colors[currentIndex % colors.length];
-
   const productItem = ListaProducts;
   const ratings = document.querySelector('input[name="rating"]:checked');
   const ratingValues = () => {
@@ -116,7 +119,9 @@ const ProductDetails = ({ background }) => {
                 value="42"
               />
               <label htmlFor="42">42</label>
-              <button className="button-buy">COMPRAR</button>
+              <button className="button-buy" onClick={HandleAddToCart}>
+                COMPRAR
+              </button>
             </div>
           </div>
         </div>

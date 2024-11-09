@@ -48,6 +48,10 @@ const CartProvider = ({ children }) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   }, []);
 
+  const isProductInCart = (productId, cart) => {
+    return cart.some((product) => product.id === productId);
+  };
+
   const cleanCart = useCallback(() => {
     setCart([]);
   }, []);
@@ -61,6 +65,7 @@ const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         cleanCart,
+        isProductInCart,
       }}
     >
       {children}

@@ -59,7 +59,7 @@ const Header = () => {
           <button className="login">Entrar</button>
         </div>
         <div className="container-cart">
-          <Link className="pi pi-shopping-cart" to="#"></Link>
+          <Link className="pi pi-shopping-cart" to="/cart"></Link>
           <img className="circuloNotificacao" src={circuloNotificacao} alt="" />
           <span>
             <i className="informations">{itemCount}</i>

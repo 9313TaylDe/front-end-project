@@ -13,9 +13,29 @@ import image5 from "../assets/product.png";
 import image6 from "../assets/product.png";
 import Products from "../components/Products";
 
-const ProductDetails = ({ background }) => {
+const ProductDetails = ({ removeFromCart }) => {
   const { id } = useParams();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const { cart, addToCart, isProductInCart } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const HandleAddToCart = () => {
+    addToCart({
+      id,
+      nome: productItem.nome,
+      model: productItem.model,
+      price: productItem.price,
+      new_price: productItem.new_price,
+      image: productItem.image,
+      disccount: productItem.discount,
+    });
+  };
+
+  const HandleRemoveFromCart = () => {
+    removeFromCart(id);
+  };
+
   const images = [image, image2, image3, image4, image5, image6];
   const colors = [
     "miniatura-blue",
@@ -119,9 +139,6 @@ const ProductDetails = ({ background }) => {
                 value="42"
               />
               <label htmlFor="42">42</label>
-              <button className="button-buy" onClick={HandleAddToCart}>
-                COMPRAR
-              </button>
             </div>
           </div>
         </div>

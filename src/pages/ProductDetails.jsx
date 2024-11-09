@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "./CartProvider";
+import { CartContext } from "../components/CartProvider";
 import { useEffect } from "react";
-import ListaProducts from "./ListaProducts";
+import { useCallback } from "react";
+import ListaProducts from "../components/ListaProducts";
 import image from "../assets/product.png";
 import image2 from "../assets/product.png";
 import image3 from "../assets/product.png";
@@ -11,8 +12,7 @@ import image4 from "../assets/product.png";
 import image5 from "../assets/product.png";
 import image6 from "../assets/product.png";
 
-const ProductDetails = ({ background }) => {
-  const { id } = useParams();
+const ProductDetails = ({ nome, model, price, new_price, disccount }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [image, image2, image3, image4, image5, image6];
   const colors = [
@@ -24,27 +24,48 @@ const ProductDetails = ({ background }) => {
     "miniatura-coral",
   ];
 
-  const { cart, addToCart } = useContext(CartContext);
+  const { id } = useParams();
   const [isAdded, setIsAdded] = useState(false);
+  const { cart, addToCart, cleanCart, removeFromCart } =
+    useContext(CartContext);
+
   const navigate = useNavigate();
+  const isProductInCart = (productId, cart) => {
+    return cart.some((product) => product.id === productId);
+  };
 
   useEffect(() => {
-    const productInCart = cart.some((product) => product.id === id);
-    setIsAdded(productInCart);
+    setIsAdded(isProductInCart(parseInt(id), cart));
+    // console.log(cart);
+    // console.log(id);
   }, [id, cart]);
 
+  {
+    if (cart.length <= 0) {
+      // cleanCart();
+    }
+  }
   const HandleAddToCart = () => {
     addToCart({
-      id: productItem.id,
-      nome: productItem.nome,
-      model: productItem.model,
-      price: productItem.price,
-      new_price: productItem.new_price,
-      image: productItem.image,
-      disccount: productItem.discount,
+      id: parseInt(id),
+      nome,
+      model,
+      price,
+      new_price,
+      image,
+      disccount,
     });
     setIsAdded(true);
   };
+
+  const HandleRemoveFromCart = () => {
+    removeFromCart(parseInt(id));
+    setIsAdded(false);
+  };
+  const product = ListaProducts.find((item) => item.id === parseInt(id));
+  if (!product) {
+    return <h2>Produto não encontrado</h2>;
+  }
 
   const colorsClass = colors[currentIndex % colors.length];
 
@@ -66,11 +87,6 @@ const ProductDetails = ({ background }) => {
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
-
-  const productItem = ListaProducts.find((item) => item.id === parseInt(id));
-  if (!productItem) {
-    return <h2>Produto não encontrado</h2>;
-  }
 
   return (
     <div className="containerpai-products-details">
@@ -100,7 +116,7 @@ const ProductDetails = ({ background }) => {
       </div>
       <div className="container-right-side">
         <div className="descriptions-product">
-          <p className="model">{productItem.model}</p>
+          <p className="model">{product.model}</p>
           <div className="rating">
             {
               <i className="pi pi-star">
@@ -124,13 +140,13 @@ const ProductDetails = ({ background }) => {
             <label htmlFor="star1">&#9733;</label>
           </div>
           <p className="container-precos">
-            <span className="p-precos">R$</span> {productItem.price}
-            <span className="p-newprice"> {productItem.new_price}</span>
+            <span className="p-precos">R$</span> {product.price}
+            <span className="p-newprice"> {product.new_price}</span>
           </p>
           <br />
           <p className="container-descricao">
             <h2 className="h2-desc">Descrição do produto</h2>
-            <p className="desc">{productItem.description}</p>
+            <p className="desc">{product.description}</p>
           </p>
           <br />
         </div>
@@ -145,9 +161,17 @@ const ProductDetails = ({ background }) => {
             <label htmlFor="41">41</label>
             <input type="checkbox" id="42" name="quarenta-e-dois" value="42" />
             <label htmlFor="42">42</label>
-            <button className="button-buy" onClick={HandleAddToCart}>
-              COMPRAR
-            </button>
+            {isAdded ? (
+              <button
+                className="pi pi-minus-circle"
+                onClick={HandleRemoveFromCart}
+              ></button>
+            ) : (
+              <button
+                className="button-buy pi pi-plus-circle"
+                onClick={HandleAddToCart}
+              ></button>
+            )}
           </div>
         </div>
       </div>

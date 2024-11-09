@@ -6,11 +6,12 @@ import "./App.css";
 import Layout from "./components/Layout";
 import RouteProtected from "./components/RoutesProtected";
 import CartProvider from "./components/CartProvider";
-import ProductDetails from "./components/ProductDetails";
+import ProductDetails from "./pages/ProductDetails";
 import Login from "./pages/Login";
 import ProductsListing from "./pages/ProductsListing";
 import Products from "./components/Products";
 import ProductsPage from "./pages/ProductsPage";
+import Cart from "./pages/Cart";
 const App = () => {
   return (
     <CartProvider>
@@ -49,6 +50,14 @@ const App = () => {
             element={
               <Layout>
                 <ProductsListing />
+              </Layout>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <Layout>
+                <Cart />
               </Layout>
             }
           />

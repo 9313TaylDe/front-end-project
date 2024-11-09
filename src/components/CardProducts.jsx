@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import product from "../assets/product.png";
 import "../Product.css";
 import { CartContext } from "./CartProvider";
-import ProductDetails from "./ProductDetails";
+import ProductDetails from "../pages/ProductDetails";
 import { useContext, useEffect, useRef, useState } from "react";
 const CardProducts = ({
   nome,
@@ -17,32 +17,23 @@ const CardProducts = ({
   products = [],
 }) => {
   const { cart } = useContext(CartContext);
-  const [isAdded, setIsAdded] = useState(false);
   const navigate = useNavigate();
+  const [isAdded, setIsAdded] = useState(false);
+  const isProductInCart = (productId, cart) => {
+    return cart.some((product) => product.id === productId);
+  };
 
   useEffect(() => {
-    const productInCart = cart.some((product) => product.id === id);
-    setIsAdded(productInCart);
+    setIsAdded(isProductInCart(id, cart));
   }, [id, cart]);
 
   const HandleAddToCart = () => {
-    addToCart({
-      id,
-      nome,
-      model,
-      price,
-      new_price,
-      image,
-      disccount,
-    });
-    setIsAdded(true);
+    addToCart({ id, nome, model, price, new_price, image, disccount });
   };
 
   const HandleRemoveFromCart = () => {
     removeFromCart(id);
-    setIsAdded(false);
   };
-
   const HandlePageClick = () => {
     navigate(`/product/${id}/`);
   };

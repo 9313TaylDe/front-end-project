@@ -34,7 +34,7 @@ const CollectionsProducts3 = () => {
           alt="Produto"
         />
         <img className="circle_collection" src={circle_collection3} alt="" />
-        <div className="w-full flex gap-2 align-content-center justify-content-center mt-2">
+        <div className="container-bolinhas w-full flex gap-1 align-content-center justify-content-center absolute top-0">
           {images.map((_, index) => (
             <img
               className="bolinhas"

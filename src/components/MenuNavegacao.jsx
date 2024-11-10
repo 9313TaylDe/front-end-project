@@ -13,7 +13,7 @@ const MenuNavegacao = () => {
         <Link className="link" to="/categorias">
           Categorias
         </Link>
-        <Link className="link" to="#">
+        <Link className="link" to="/meus-pedidos">
           Meus pedidos
         </Link>
       </nav>

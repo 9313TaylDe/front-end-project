@@ -9,9 +9,9 @@ import CartProvider from "./components/CartProvider";
 import ProductDetails from "./pages/ProductDetails";
 import Login from "./pages/Login";
 import ProductsListing from "./pages/ProductsListing";
-import Products from "./components/Products";
 import ProductsPage from "./pages/ProductsPage";
 import Cart from "./pages/Cart";
+import Informacao from "../src/components/Footer";
 const App = () => {
   return (
     <CartProvider>
@@ -62,6 +62,14 @@ const App = () => {
             }
           />
           <Route
+            path="/meus-pedidos"
+            element={
+              <Layout>
+                <Cart />
+              </Layout>
+            }
+          />
+          <Route
             path="/"
             element={
               <RouteProtected
@@ -72,6 +80,18 @@ const App = () => {
                 }
               />
             }
+          />
+          <Route path="/sobre" element={<Informacao tipo="sobre" />} />
+          <Route path="/seguranca" element={<Informacao tipo="seguranca" />} />
+          <Route path="/wishlist" element={<Informacao tipo="wishlist" />} />
+          <Route path="/blog" element={<Informacao tipo="blog" />} />
+          <Route
+            path="/trabalhe-conosco"
+            element={<Informacao tipo="trabalhe-conosco" />}
+          />
+          <Route
+            path="/meus-pedidos"
+            element={<Informacao tipo="meus-pedidos" />}
           />
           <Route path="*" element={<NotFound />} />
           <Route

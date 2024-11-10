@@ -449,7 +449,7 @@ input:focus {
 }
 @media (min-width: 430px) and (max-width: 896px) {
   .container-header {
-    padding: 1em;
+    padding: 0.6em;
   }
   header {
     width: 100%;
@@ -518,7 +518,7 @@ input:focus {
   .menu-mobile {
     position: absolute;
     right: 0;
-    top: 59px;
+    top: 49px;
     font-size: 1.2em;
     visibility: visible;
     display: flex;

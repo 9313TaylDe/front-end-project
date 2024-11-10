@@ -3,17 +3,21 @@ import logo from "../assets/LogoFooter.png";
 import facebook from "../assets/facebook.png";
 import "../Home.css";
 import "../Footer.css";
+import { useLocation } from "react-router-dom";
 
-const Footer = (informacoes, redesSociais, endereco) => {
+const Footer = () => {
+  const location = useLocation();
+  const navigate = location.pathname;
+
   const InformacoesFooter = {
     informacoes: [
       { titulo: "Informação" },
-      { about: "Sobre Drip Store", Link: "#" },
-      { about: "Segurança", link: "#" },
-      { about: "Wishlist", link: "#" },
-      { about: "Blog", link: "#" },
-      { about: "Trabalhe conosco", link: "#" },
-      { about: "Meus pedidos", link: "#" },
+      { about: "Sobre Drip Store", Link: "/sobre" },
+      { about: "Segurança", link: "/seguranca" },
+      { about: "Wishlist", link: "/wishlist" },
+      { about: "Blog", link: "blog" },
+      { about: "Trabalhe conosco", link: "/trabalhe-conosco" },
+      { about: "Meus pedidos", link: "/meus-pedidos" },
     ],
     categorias: [
       { tituloSociais: "Categorias" },
@@ -37,6 +41,7 @@ const Footer = (informacoes, redesSociais, endereco) => {
       { telefone: "(88) 999313-9090" },
     ],
   };
+
   return (
     <footer>
       <section className="left-side-footer">

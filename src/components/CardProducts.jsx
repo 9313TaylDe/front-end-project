@@ -34,14 +34,15 @@ const CardProducts = ({
   const HandleRemoveFromCart = () => {
     removeFromCart(id);
   };
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  };
+
   const HandlePageClick = () => {
+    scrollTop();
     navigate(`/product/${id}/`);
   };
 
-  const topoRef = useRef(null);
-  const scrollTop = () => {
-    topoRef.current.scrollIntoView({ behavior: "smooth" });
-  };
   return (
     <div className="card-products">
       <div className="card-image">

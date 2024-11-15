@@ -12,6 +12,7 @@ import ListaProducts from "./ListaProducts";
 import { useContext } from "react";
 import { CartContext } from "./CartProvider";
 import CartProvider from "./CartProvider";
+import { useRef } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState();
@@ -39,9 +40,15 @@ const Header = () => {
     });
     setIsAdded(true);
   };
+  const topoRef = useRef();
+  const scrollTop = () => {
+    if (topoRef.current) {
+      topoRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
-    <header id="header">
+    <header id="header" ref={topoRef}>
       <div className="container-header">
         <div className="logo-header">
           <img src={logo} alt="" />

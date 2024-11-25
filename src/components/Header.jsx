@@ -3,7 +3,7 @@ import circuloNotificacao from "../assets/Ellipse.png";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import React, { useEffect, useState } from "react";
-import "../header.css";
+import "../css/header.css";
 import { Link } from "react-router-dom";
 import MenuNavegacao from "./MenuNavegacao";
 import Links from "./Links";
@@ -77,45 +77,19 @@ const Header = () => {
       <div className="menu-mobile" onClick={toggleMenu}>
         {isOpen ? (
           <>
-            <i className="pi pi-times"></i>
+            <i className="pi pi-times-circle"></i>
             <div className="div-menu-mobile" onClick={toggleMenu}>
-              <Links
-                className="new-account2"
-                font="12px"
-                width="max-content"
-                height="50%"
-                borderradius="10px"
-                border="none"
-                border_b="none"
-                backgroundColor_hover="black"
-                color=" #c92071"
-                color_hover="white"
-                fontWeight="900"
-                padding="2.8px"
-              >
+              <a href="" className="cadastre_button">
                 Cadastre-se
-              </Links>
-
-              <Links
-                className="link-login2"
-                width="60px"
-                height="50%"
-                borderradius="10px"
-                backgroundColor="black"
-                font="12px"
-                color="white"
-                color_hoer="#c92071"
-                border="none"
-                border_b="none"
-                fontWeight="900"
-              >
+              </a>
+              <a href="" className="entrar_button">
                 Entrar
-              </Links>
+              </a>
             </div>{" "}
           </>
         ) : (
           <div className="container-open-menu">
-            <i className="pi pi-angle-left" onClick={toggleMenu}></i>
+            <i className="pi pi-bars" onClick={toggleMenu}></i>
           </div>
         )}
       </div>

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/LogoFooter.png";
 import facebook from "../assets/facebook.png";
-import "../Home.css";
-import "../Footer.css";
+import "../css/Footer.css";
+// import "../css/Home.css";
 import { useLocation } from "react-router-dom";
 
 const Footer = () => {

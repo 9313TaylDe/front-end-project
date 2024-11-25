@@ -1,7 +1,7 @@
 import ListaProducts from "./ListaProducts";
-import CardProducts from "./CardProducts";
+import CardProducts from "./ProductCards";
 import "primeicons/primeicons.css";
-import "../Product.css";
+import "../css/Product.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartProvider";

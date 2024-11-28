@@ -35,7 +35,16 @@ const App = () => {
       <ProductsProvider>
         <CartProvider>
           <Routes>
-            // Rotas públicas (somente para usuários não autenticados)
+            <Route
+              path="/"
+              element={
+                signed ? (
+                  <Navigate to="/home" replace />
+                ) : (
+                  <Navigate to="/login" replace />
+                )
+              }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/unauthorized" element={<UnauthorizedPage />} />
             <Route

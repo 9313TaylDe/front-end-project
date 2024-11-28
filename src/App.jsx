@@ -23,13 +23,13 @@ const App = () => {
   const { signed } = useAuth();
   const [loading, setLoading] = useState(true); // Indicador de carregamento
 
-  // useEffect(() => {
-  //   setLoading(false); // Assume que a verificação inicial está concluída
-  // }, [signed]);
+  useEffect(() => {
+    setLoading(false); // Assume que a verificação inicial está concluída
+  }, [signed]);
 
-  // if (loading) {
-  //   return <p>Carregando...</p>; // Exibe algo enquanto verifica o estado
-  // }
+  if (loading) {
+    return <p>Carregando...</p>; // Exibe algo enquanto verifica o estado
+  }
   return (
     <AuthProvider>
       <ProductsProvider>
@@ -105,46 +105,6 @@ const App = () => {
                   <Layout>
                     <CongratulationsToPay />
                   </Layout>
-                </RouteProtected>
-              }
-            />
-            <Route
-              path="/sobre"
-              element={
-                <RouteProtected>
-                  <Informacao tipo="sobre" />
-                </RouteProtected>
-              }
-            />
-            <Route
-              path="/seguranca"
-              element={
-                <RouteProtected>
-                  <Informacao tipo="seguranca" />
-                </RouteProtected>
-              }
-            />
-            <Route
-              path="/wishlist"
-              element={
-                <RouteProtected>
-                  <Informacao tipo="wishlist" />
-                </RouteProtected>
-              }
-            />
-            <Route
-              path="/blog"
-              element={
-                <RouteProtected>
-                  <Informacao tipo="blog" />
-                </RouteProtected>
-              }
-            />
-            <Route
-              path="/trabalhe-conosco"
-              element={
-                <RouteProtected>
-                  <Informacao tipo="trabalhe-conosco" />
                 </RouteProtected>
               }
             />

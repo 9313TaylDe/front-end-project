@@ -1,3 +1,4 @@
+import { set } from "mongoose";
 import { createContext, useCallback, useEffect, useState } from "react";
 
 export const CartContext = createContext();
@@ -10,17 +11,32 @@ const CartProvider = ({ children }) => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
       try {
-        setCart(JSON.parse(savedCart));
+        const parsedCart = JSON.parse(savedCart);
+        if (Array.isArray(parsedCart)) {
+          setCart(parsedCart);
+        } else {
+          console.warn("Carrinho inválido no localstorage, redefinindo");
+        }
       } catch (error) {
         console.error("Error parsing saved cart:", error); // Use console.error para erros
         setCart([]);
       }
     }
+  }, []);
+
+  useEffect(() => {
+    localStorage.removeItem("cart");
 
     const savedProducts = localStorage.getItem("products");
     if (savedProducts) {
       try {
-        setProducts(JSON.parse(savedProducts));
+        const parsedProducts = JSON.parse(savedProducts);
+        if (Array.isArray(parsedProducts)) {
+          setProducts(parsedProducts);
+        } else {
+          console.warn("Produtos inválidos no localstorage, redefinindo");
+          setProducts([]);
+        }
       } catch (error) {
         console.error("Failed to parse products in localStorage:", error);
         setProducts([]);
@@ -38,9 +54,15 @@ const CartProvider = ({ children }) => {
 
   const addToCart = useCallback((product) => {
     if (product && product.id) {
-      setCart((prevCart) => [...prevCart, product]);
+      setCart((prevCart) => {
+        if (prevCart.some((item) => item.id === product.id)) {
+          alert("Produto já está no carrinho");
+          return prevCart;
+        }
+        return [...prevCart, product];
+      });
     } else {
-      alert("Produto inválido:", product);
+      console.error("Produto inválido", product);
     }
   }, []);
 

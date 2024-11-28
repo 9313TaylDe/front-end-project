@@ -2,10 +2,9 @@ import { createContext, useEffect, useState } from "react";
 
 // Criando o contexto de autenticação
 export const AuthContext = createContext({});
-import { useNavigate } from "react-router-dom";
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("Verificando autenticação no localStorage...");

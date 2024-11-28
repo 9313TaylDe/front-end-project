@@ -35,16 +35,6 @@ const App = () => {
       <ProductsProvider>
         <CartProvider>
           <Routes>
-            <Route
-              path="/"
-              element={
-                signed ? (
-                  <Navigate to="/home" replace />
-                ) : (
-                  <Navigate to="/login" replace />
-                )
-              }
-            />
             <Route path="/login" element={<Login />} />
             <Route path="/unauthorized" element={<UnauthorizedPage />} />
             <Route

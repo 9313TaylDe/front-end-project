@@ -9,9 +9,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     console.log("Verificando autenticação no localStorage...");
-    {
-      signed && navigate("/login");
-    }
 
     const userToken = localStorage.getItem("user_token");
     const usersStorage = JSON.parse(localStorage.getItem("users"));

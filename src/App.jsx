@@ -37,7 +37,13 @@ const App = () => {
           <Routes>
             <Route
               path="/"
-              element={<Navigate to={signed ? "/home" : "/login"} replace />}
+              element={
+                signed ? (
+                  <Navigate to="/home" replace />
+                ) : (
+                  <Navigate to="/login" replace />
+                )
+              }
             />
             <Route path="/login" element={<Login />} />
             <Route path="/unauthorized" element={<UnauthorizedPage />} />

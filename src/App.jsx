@@ -36,6 +36,7 @@ const App = () => {
         <CartProvider>
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/unauthorized" element={<UnauthorizedPage />} />
             <Route
               path="/home"

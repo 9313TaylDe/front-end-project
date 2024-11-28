@@ -5,6 +5,7 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [signed, setSigned] = useState(false); // Controle de autenticação
 
   useEffect(() => {
     console.log("Verificando autenticação no localStorage...");

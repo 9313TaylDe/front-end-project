@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const RouteProtected = ({ children }) => {
-  const navigate = useNavigate(); // Função para redirecionar
-  const { signed } = useAuth(); // Obtem o estado de autenticação do usuário
+  const Navigate = useNavigate();
+  const { signed } = useAuth();
+  console.log("Estado de autenticação no RouteProtected:", signed);
 
   if (!signed) {
-    navigate("/login", { replace: true });
-    return null;
+    console.log("Acesso negado. Redirecionando para login.");
+    return <Navigate to="/login" replace />;
   }
 
   return children;

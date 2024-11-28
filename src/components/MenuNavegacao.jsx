@@ -4,7 +4,7 @@ const MenuNavegacao = () => {
   return (
     <div className="container-navegacao-principal">
       <nav className="navegacao-principal">
-        <Link className="link" to="/">
+        <Link className="link" to="/home">
           Home
         </Link>
         <Link className="link" to="/produtos">

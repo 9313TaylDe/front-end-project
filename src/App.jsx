@@ -6,127 +6,152 @@ import Layout from "./components/Layout";
 import RouteProtected from "./components/RoutesProtected";
 import CartProvider from "./components/CartProvider";
 import ProductDetails from "./pages/ProductDetails";
-import Login, { NewAccount } from "./pages/Login";
+import Login from "./pages/Login";
 import ProductsListing from "./components/ProductOptions";
 import ProductsPage from "./pages/ProductsPage";
-import Cart, { CongratulationsToPay } from "./pages/Cart";
+import Cart, { CongratulationsToPay, PayConclued } from "./pages/Cart";
 import Informacao from "../src/components/Footer";
 import { AuthProvider } from "./backend/auth";
 import UnauthorizedPage from "./pages/UnauthorizedPage";
+import useAuth from "./hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ProductsProvider } from "./components/ProductsProvider";
 
 const App = () => {
+  const Navigate = useNavigate();
+  const { signed } = useAuth();
+  const [loading, setLoading] = useState(true); // Indicador de carregamento
+
+  // useEffect(() => {
+  //   setLoading(false); // Assume que a verificação inicial está concluída
+  // }, [signed]);
+
+  // if (loading) {
+  //   return <p>Carregando...</p>; // Exibe algo enquanto verifica o estado
+  // }
   return (
     <AuthProvider>
-      <CartProvider>
-        <Routes>
-          {/* Rotas Públicas */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/unauthorized" element={<UnauthorizedPage />} />
-          <Route path="*" element={<NotFound />} />
-
-          {/* Rotas Protegidas */}
-          <Route
-            path="/"
-            element={
-              <RouteProtected>
-                <Layout>
-                  <Home />
-                </Layout>
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/product/:id"
-            element={
-              <RouteProtected>
-                <Layout>
-                  <ProductDetails />
-                </Layout>
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/categorias"
-            element={
-              <RouteProtected>
-                <Layout>
-                  <ProductsListing />
-                </Layout>
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <RouteProtected>
-                <Layout>
-                  <Cart />
-                </Layout>
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/produtos"
-            element={
-              <RouteProtected>
-                <Layout>
-                  <ProductsPage />
-                </Layout>
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/congratulations-to-pay"
-            element={
-              <RouteProtected>
-                <Layout>
-                  <CongratulationsToPay />
-                </Layout>
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/sobre"
-            element={
-              <RouteProtected>
-                <Informacao tipo="sobre" />
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/seguranca"
-            element={
-              <RouteProtected>
-                <Informacao tipo="seguranca" />
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/wishlist"
-            element={
-              <RouteProtected>
-                <Informacao tipo="wishlist" />
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/blog"
-            element={
-              <RouteProtected>
-                <Informacao tipo="blog" />
-              </RouteProtected>
-            }
-          />
-          <Route
-            path="/trabalhe-conosco"
-            element={
-              <RouteProtected>
-                <Informacao tipo="trabalhe-conosco" />
-              </RouteProtected>
-            }
-          />
-        </Routes>
-      </CartProvider>
+      <ProductsProvider>
+        <CartProvider>
+          <Routes>
+            // Rotas públicas (somente para usuários não autenticados)
+            <Route path="/login" element={<Login />} />
+            <Route path="/unauthorized" element={<UnauthorizedPage />} />
+            <Route
+              path="/home"
+              element={
+                <RouteProtected>
+                  <Layout>
+                    <Home />
+                  </Layout>
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/product/:id"
+              element={
+                <RouteProtected>
+                  <Layout>
+                    <ProductDetails />
+                  </Layout>
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/categorias"
+              element={
+                <RouteProtected>
+                  <Layout>
+                    <ProductsListing />
+                  </Layout>
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/meus-pedidos"
+              element={
+                <RouteProtected>
+                  <Layout>
+                    <Cart />
+                  </Layout>
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <RouteProtected>
+                  <Layout>
+                    <PayConclued />
+                  </Layout>
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/produtos"
+              element={
+                <RouteProtected>
+                  <Layout>
+                    <ProductsPage />
+                  </Layout>
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/congratulations-to-pay"
+              element={
+                <RouteProtected>
+                  <Layout>
+                    <CongratulationsToPay />
+                  </Layout>
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/sobre"
+              element={
+                <RouteProtected>
+                  <Informacao tipo="sobre" />
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/seguranca"
+              element={
+                <RouteProtected>
+                  <Informacao tipo="seguranca" />
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/wishlist"
+              element={
+                <RouteProtected>
+                  <Informacao tipo="wishlist" />
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/blog"
+              element={
+                <RouteProtected>
+                  <Informacao tipo="blog" />
+                </RouteProtected>
+              }
+            />
+            <Route
+              path="/trabalhe-conosco"
+              element={
+                <RouteProtected>
+                  <Informacao tipo="trabalhe-conosco" />
+                </RouteProtected>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </CartProvider>
+      </ProductsProvider>
     </AuthProvider>
   );
 };

@@ -3390,7 +3390,6 @@
   .button-buy:hover {
     background-color: #8f8f8f;
   }
-
 }
 @media (min-width: 587px) and (max-width: 673px) {
   .container-products {
@@ -4095,7 +4094,7 @@
     background-color: #8f8f8f;
   }
 }
-@media (min-width: 674px) and (max-width: 850px) {
+@media (min-width: 674px) and (max-width: 899px) {
   .container-products {
     width: 100%;
     height: 100%;
@@ -4489,39 +4488,45 @@
 }
 
 @media (max-width: 900px) {
-  .container-productslisting {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    padding: 0 0.7em;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(249, 248, 254, 1);
-    gap: 1em;
+  .menu-options-open {
+    display: none;
   }
-
+  
   .container-opcoes {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     flex-direction: column;
-    border: 1px solid;
-    width: 30%;
-    height: 50%;
-    background-color: rgba(255, 255, 255, 1);
+    padding-left: 2em;
+    width: 50%;
+    border-radius: 0 15px 15px 0;
+    gap: 4px;
+    z-index: 1000;
+    background-color: red;
   }
 
+  .menu-mobile-options    {
+    visibility: visible;
+    height:max-content;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 40%;
+    z-index: 1000;
+  }
+/* 
   .opcoes1 {
     width: 100%;
     display: flex;
     flex-direction: column;
-  }
+  } */
 
   .opcoes1 label,
   .opcoes2 label,
   .opcoes3 label {
     display: flex;
-    width: 80%;
+    width: max-content;
     font-size: 10px;
   }
   .opcoes1 input,
@@ -4538,6 +4543,7 @@
     background-color: red;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .container-labelinput input::selection,
@@ -4555,44 +4561,31 @@
     margin-bottom: 10px;
   }
 
-  .container-listingproducts {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1.5em;
-    gap: 2px;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .container-menulistingproducts .pi-bars {
-  background-color: red;
-  border-radius: 0 10px 10px 0;
-  height: max-content;
-  position: absolute;
-  font-size: 1.2em;
-top: -5em;  
-left: 0;
-} 
-
-
-  .container-listingproducts .card-products {
-    width: calc(25% - 2px);
-    gap: 1em;
-  }
-
-  .container-menulistingproducts {
-    width: 100%;
-    z-index: 1000;
+  .menu-mobile-options .pi-bars {
+    border-radius: 0 10px 10px 0;
+    height: max-content;
+    width: max-content;
     position: absolute;
-    top: 8%;
+    font-size: 2em;
+    top: 14%;
     left: 0;
   }
 
+  .menu-mobile-options .pi-filter {
+left:4.5%;
+position: absolute;
+  }
+  .container-menulistingproducts {
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 8%;
+    left: 0;
+
+  }
 }
 
-@media (min-width: 852px) and (max-width: 1280px) {
+@media (min-width: 902px) and (max-width: 1280px) {
   .container-products {
     width: 100%;
     display: flexbox;

@@ -259,7 +259,7 @@ export const CongratulationsToPay = () => {
         <h3>Total Pago: R${total}</h3>
       </div>
 
-      <button onClick={() => navigate("/")}>Voltar para a loja</button>
+      <button onClick={() => navigate("/home")}>Voltar para a loja</button>
     </div>
   );
 };
@@ -284,7 +284,7 @@ const Cart = () => {
         ) : (
           <div className="card-carts">
             <PayConclued />
-            {cart.map((product) => (
+            {/* {cart.map((product) => (
               <CardProducts
                 key={product.id}
                 id={product.id}
@@ -295,7 +295,7 @@ const Cart = () => {
                 new_price={product.new_price}
                 removeFromCart={removeFromCart}
               />
-            ))}
+            ))} */}
           </div>
         )}
       </div>

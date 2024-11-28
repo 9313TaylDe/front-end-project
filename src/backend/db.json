@@ -1,19 +1,260 @@
 {
-  "users": [
+  "usuarios": [
     {
-      "id": "1",
-      "email": "admin@example.com",
-      "password": "admin123"
+      "id": 1,
+      "nome": "Admin",
+      "email": "admin@exemplo.com",
+      "senha": "admin123",
+      "role": "diretor"
     },
     {
-      "id": "2",
-      "email": "user@example.com",
-      "password": "user12345"
+      "id": 2,
+      "nome": "Usuário Normal",
+      "email": "usuario@exemplo.com",
+      "senha": "senha123",
+      "role": "usuario"
+    }
+  ],
+  "produtos": [
+    {
+      "nome": "Tênis",
+      "model": "K-Swiss V8 - Masculino",
+      "description": "O K-Swiss V8 oferece um design moderno e sofisticado, proporcionando conforto e estilo para o uso diário. Com materiais de alta qualidade, ele é ideal para quem busca um tênis versátil que combine com qualquer ocasião, seja um passeio casual ou uma atividade mais intensa.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 1,
+      "image": "/assets/product.png",
+      "discount": 30
     },
     {
-      "id": "755d",
-      "email": "expeditotaylor@gmail.com",
-      "password": "1233333333"
+      "nome": "Tênis",
+      "model": "Nike Air Max 2021 - Masculino",
+      "description": "Com tecnologia Air Max para máxima absorção de impacto, o Nike Air Max 2021 é projetado para resistir a atividades intensas e garantir conforto durante todo o dia. Sua estrutura moderna e design icônico fazem dele uma excelente opção tanto para atividades esportivas quanto para compor um look urbano e casual.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 2,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Adidas Ultraboost 21 - Masculino",
+      "description": "Ideal para corredores e entusiastas de fitness, o Adidas Ultraboost 21 é construído com tecnologia de ponta para proporcionar o máximo de retorno de energia. Sua sola é feita de material durável, oferecendo ótima aderência em diversos tipos de terreno, tornando-o perfeito para treinos intensos e longas corridas.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 3,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Asics Gel-Nimbus 23 - Masculino",
+      "description": "O Asics Gel-Nimbus 23 é versátil e combina estilo e funcionalidade. Ideal para quem pratica esportes ou apenas deseja um calçado confortável para o dia a dia, sua tecnologia GEL oferece amortecimento ideal para minimizar impactos, tornando-o perfeito para diversas atividades, desde caminhadas até exercícios de alta intensidade.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 4,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Mizuno Wave Sky 5 - Masculino",
+      "description": "Um clássico reinventado, o Mizuno Wave Sky 5 combina tecnologia avançada e conforto. Seu sistema de amortecimento é ideal para absorver impactos em corridas de longa distância, e seu design atemporal o torna uma escolha elegante para qualquer ocasião, seja para atividades esportivas ou uso diário.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 5,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Reebok Zig Kinetica - Masculino",
+      "description": "O Reebok Zig Kinetica é um tênis moderno e estiloso que se adapta facilmente a diferentes estilos. Com tecnologia de amortecimento Zig, oferece um excelente suporte e conforto. Ideal para aqueles que gostam de misturar o esporte com o estilo urbano, ele garante estabilidade e estilo em qualquer ocasião.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 6,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "New Balance 574 - Masculino",
+      "description": "O New Balance 574 é um clássico. Leve e confortável, é ideal para o uso diário e oferece um visual casual que combina com tudo. Seu design icônico e palmilha confortável garantem um calce perfeito para longas caminhadas, sendo uma ótima escolha para quem prioriza o conforto sem abrir mão do estilo.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 7,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Puma RS-X - Masculino",
+      "description": "O Puma RS-X apresenta um design arrojado e um ajuste perfeito para os pés. Com materiais de alta qualidade e uma estrutura robusta, é ideal para atividades intensas e também para uso casual, tornando-se uma excelente opção para quem gosta de estilo e desempenho em um único calçado.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 8,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Fila Float Knit - Masculino",
+      "description": "O Fila Float Knit oferece um amortecimento eficiente e suporte adequado para diversas atividades esportivas. Com um design moderno e leve, este modelo é ideal para combinar com diferentes estilos e oferece conforto e estabilidade para quem busca performance e versatilidade.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 9,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Under Armour HOVR Phantom - Masculino",
+      "description": "Projetado para longas caminhadas, o Under Armour HOVR Phantom possui a tecnologia HOVR que proporciona excelente retorno de energia, garantindo conforto e leveza durante o uso. Ideal para quem busca um tênis funcional e confortável, sem abrir mão do design.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 10,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Converse Chuck Taylor All Star - Masculino",
+      "description": "O Converse Chuck Taylor All Star é um clássico que une estilo e conforto. Com seu design atemporal, é perfeito para um visual esportivo e casual. Sua estrutura resistente e conforto fazem dele uma ótima escolha para uso diário e em diferentes ocasiões.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 11,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Vans Old Skool - Masculino",
+      "description": "O Vans Old Skool oferece um visual clássico e um solado que garante aderência, ideal para uso em superfícies escorregadias. É perfeito para quem busca um estilo urbano com praticidade e conforto, sendo uma excelente escolha para o dia a dia.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 12,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Skechers GOwalk - Masculino",
+      "description": "Para quem busca conforto e estilo, o Skechers GOwalk é uma ótima escolha. Feito para caminhadas e longos períodos de uso, seu material leve e respirável proporciona frescor e leveza, ideal para quem precisa de um tênis para o dia a dia.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 13,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Brooks Ghost 14 - Masculino",
+      "description": "O Brooks Ghost 14 combina um acabamento premium com um design sofisticado, ideal para corredores que procuram desempenho e conforto. Com um sistema de amortecimento eficaz, é indicado tanto para treinos diários quanto para corridas de longa distância.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 14,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Salomon Speedcross 5 - Masculino",
+      "description": "Com um design aerodinâmico e robusto, o Salomon Speedcross 5 é ideal para trilhas e terrenos irregulares. Seu sistema de amortecimento e a aderência excepcional garantem estabilidade e conforto em qualquer superfície.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 15,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Nike ZoomX Vaporfly Next% 2 - Masculino",
+      "description": "Desenvolvido para corredores de elite, o Nike ZoomX Vaporfly Next% 2 é a escolha ideal para quem busca a máxima performance. Com uma sola que proporciona excelente retorno de energia, ele é a opção perfeita para quem busca velocidade e conforto em provas de longa distância.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 16,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Hoka One One Bondi 7 - Masculino",
+      "description": "Com um amortecimento superior e uma base ampla para estabilidade, o Hoka One One Bondi 7 é perfeito para corredores que buscam conforto e suporte em longas distâncias. Seu design acolhedor e performance de alta qualidade tornam-no uma escolha favorita entre os corredores.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 17,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "On Cloudmonster - Masculino",
+      "description": "Com um visual futurista e uma sola inovadora, o On Cloudmonster é um tênis projetado para oferecer o máximo de conforto e desempenho, com um sistema de amortecimento que proporciona uma sensação única de leveza e estabilidade.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 18,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Saucony Endorphin Pro 3 - Masculino",
+      "description": "Com a mais recente tecnologia de amortecimento, o Saucony Endorphin Pro 3 é ideal para quem procura performance e velocidade. Sua estrutura leve e dinâmica ajuda a melhorar os tempos de corrida, oferecendo conforto e agilidade.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 19,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Asics Gel-Kayano 29 - Masculino",
+      "description": "Com a tecnologia GEL e um design estruturado, o Asics Gel-Kayano 29 é ideal para corredores que buscam estabilidade e conforto. Ele é conhecido por oferecer suporte superior e reduzir a pressão em áreas críticas do pé.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 20,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Nike Pegasus 39 - Masculino",
+      "description": "O Nike Pegasus 39 oferece uma combinação de leveza e suporte, ideal para treinos e corridas de resistência. Com amortecimento responsivo e estrutura confortável, é uma ótima opção para corredores de qualquer nível.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 21,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Puma Future Rider - Masculino",
+      "description": "O Puma Future Rider é um tênis que mistura um design retrô com tecnologia moderna, proporcionando um ajuste perfeito e excelente conforto. Seu estilo único é ideal para quem busca um visual descolado e performance.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 22,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Nike Blazer Mid '77 Vintage - Masculino",
+      "description": "Com um design clássico e atemporal, o Nike Blazer Mid '77 Vintage traz um visual vintage com uma silhueta robusta e confortável, tornando-o ideal para quem busca estilo e praticidade no dia a dia.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 23,
+      "image": "/assets/product.png",
+      "discount": 10
+    },
+    {
+      "nome": "Tênis",
+      "model": "Adidas Superstar - Masculino",
+      "description": "O Adidas Superstar é um ícone da cultura urbana. Com sua biqueira de borracha e design clássico, é perfeito para quem deseja conforto, estilo e versatilidade em um só modelo.",
+      "price": 1200.0,
+      "new_price": 2000.0,
+      "id": 24,
+      "image": "/assets/product.png",
+      "discount": 10
     }
   ]
 }

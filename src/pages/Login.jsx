@@ -8,7 +8,7 @@ import useAuth from "../hooks/useAuth";
 import RouteProtected from "../components/RoutesProtected";
 
 // Credenciais do Diretor
-export const NewAccount = ({ onLoginSuccess }) => {
+export const NewAccount = ({ toggleLoginMode }) => {
   const [confiEmail, setConfiEmail] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -17,35 +17,14 @@ export const NewAccount = ({ onLoginSuccess }) => {
   const { signup } = useAuth();
 
   const handleSignup = async (e) => {
-    e.preventDefault(); // Previne o recarregamento da página
-    setError(""); // Limpa mensagens de erro
-
-    if (!email || !confiEmail || !password) {
-      setError("Preencha todos os campos");
+    e.preventDefault();
+    const res = await signup(email, password); // Chama signup do contexto
+    if (res) {
+      setError(res); // Exibe erro
       return;
     }
-
-    if (email !== confiEmail) {
-      setError("Os e-mails não coincidem");
-      return;
-    }
-
-    try {
-      const res = signup(email, password); // Certifique-se de que o `signup` retorna um valor síncrono
-
-      if (res) {
-        setError(res); // Exibe o erro do `signup`
-        return;
-      }
-
-      alert("Usuário cadastrado com sucesso!");
-      // onLoginSuccess(true); // Indica sucesso no login
-      navigate("/"); // Redireciona para a página inicial
-    } catch (err) {
-      // Garante que só erros inesperados entram aqui
-      console.error("Erro no cadastro:", err);
-      setError("Erro inesperado no cadastro. Tente novamente.");
-    }
+    alert("Cadastro realizado com sucesso!");
+    toggleLoginMode();
   };
 
   return (
@@ -75,7 +54,7 @@ export const NewAccount = ({ onLoginSuccess }) => {
             className="login-input"
           />
           {error && <p className="error-message">{error}</p>}
-          <button type="submit" onClick={handleSignup} className="login-button">
+          <button type="submit" className="login-button">
             Registre-se
           </button>
           <Link to="/login" className="login-link">
@@ -90,7 +69,7 @@ export const NewAccount = ({ onLoginSuccess }) => {
   );
 };
 
-export const UserLogin = ({ onLoginSuccess }) => {
+export const UserLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -98,26 +77,12 @@ export const UserLogin = ({ onLoginSuccess }) => {
   const { signin } = useAuth();
 
   const handleLogin = async () => {
-    setError("");
-
-    if (!email || !password) {
-      setError("Preencha todos os campos");
+    const res = await signin(email, password); // Chama signin do contexto
+    if (res) {
+      setError(res); // Exibe erro
       return;
     }
-
-    try {
-      const res = await signin(email, password); // Certifique-se que `signin` retorna um `Promise`
-
-      if (res) {
-        setError(res); // Se houver erro no login
-        return;
-      }
-
-      alert("Login realizado com sucesso!");
-      onLoginSuccess(true); // Indica sucesso no login
-    } catch (err) {
-      setError("Erro inesperado ao fazer login. Tente novamente.");
-    }
+    navigate("/home");
   };
 
   return (
@@ -156,6 +121,7 @@ const LoginPage = ({ handleLoginSuccess }) => {
     setIsNew((prev) => !prev); // Alterna entre "Login" e "Cadastro"
   };
 
+  const navigate = useNavigate();
   return (
     <div className="login-container-principal">
       <div className={`login-box-principal ${isNew ? "rotate" : ""}`}>
@@ -167,14 +133,14 @@ const LoginPage = ({ handleLoginSuccess }) => {
         {/* Tela de Login */}
         {!isNew && (
           <div className="login-content">
-            <UserLogin onLoginSuccess={handleLoginSuccess} />
+            <UserLogin />
           </div>
         )}
 
         {/* Tela de Cadastro */}
         {isNew && (
           <div className="login-content">
-            <NewAccount onLoginSuccess={handleLoginSuccess} />
+            <NewAccount toggleLoginMode={toggleLoginMode} />
           </div>
         )}
       </div>

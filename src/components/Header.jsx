@@ -64,6 +64,7 @@ const Header = () => {
           </a>
 
           <button className="login">Entrar</button>
+          <a href="#">Sair</a>
         </div>
         <div className="container-cart">
           <Link className="pi pi-shopping-cart" to="/cart"></Link>
@@ -79,12 +80,13 @@ const Header = () => {
           <>
             <i className="pi pi-times-circle"></i>
             <div className="div-menu-mobile" onClick={toggleMenu}>
-              <a href="" className="cadastre_button">
+              <a href="#" className="cadastre_button">
                 Cadastre-se
               </a>
-              <a href="" className="entrar_button">
+              <a href="#" className="entrar_button">
                 Entrar
               </a>
+              <a href="/signout">Sair</a>
             </div>{" "}
           </>
         ) : (

@@ -1,265 +1,51 @@
-import product from "../assets/product.png";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import CardProducts from "./ProductCards";
+import Products from "./Products";
 
-const ListaProducts = [
-  {
-    nome: "Tênis",
-    model: "K-Swiss V8 - Masculino",
-    description:
-      "O K-Swiss V8 oferece um design moderno e sofisticado, proporcionando conforto e estilo para o uso diário. Com materiais de alta qualidade, ele é ideal para quem busca um tênis versátil que combine com qualquer ocasião, seja um passeio casual ou uma atividade mais intensa.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 1,
-    image: product,
-    discount: 30,
-  },
-  {
-    nome: "Tênis",
-    model: "Nike Air Max 2021 - Masculino",
-    description:
-      "Com tecnologia Air Max para máxima absorção de impacto, o Nike Air Max 2021 é projetado para resistir a atividades intensas e garantir conforto durante todo o dia. Sua estrutura moderna e design icônico fazem dele uma excelente opção tanto para atividades esportivas quanto para compor um look urbano e casual.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 2,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Adidas Ultraboost 21 - Masculino",
-    description:
-      "Ideal para corredores e entusiastas de fitness, o Adidas Ultraboost 21 é construído com tecnologia de ponta para proporcionar o máximo de retorno de energia. Sua sola é feita de material durável, oferecendo ótima aderência em diversos tipos de terreno, tornando-o perfeito para treinos intensos e longas corridas.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 3,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Asics Gel-Nimbus 23 - Masculino",
-    description:
-      "O Asics Gel-Nimbus 23 é versátil e combina estilo e funcionalidade. Ideal para quem pratica esportes ou apenas deseja um calçado confortável para o dia a dia, sua tecnologia GEL oferece amortecimento ideal para minimizar impactos, tornando-o perfeito para diversas atividades, desde caminhadas até exercícios de alta intensidade.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 4,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Mizuno Wave Sky 5 - Masculino",
-    description:
-      "Um clássico reinventado, o Mizuno Wave Sky 5 combina tecnologia avançada e conforto. Seu sistema de amortecimento é ideal para absorver impactos em corridas de longa distância, e seu design atemporal o torna uma escolha elegante para qualquer ocasião, seja para atividades esportivas ou uso diário.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 5,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Reebok Zig Kinetica - Masculino",
-    description:
-      "O Reebok Zig Kinetica é um tênis moderno e estiloso que se adapta facilmente a diferentes estilos. Com tecnologia de amortecimento Zig, oferece um excelente suporte e conforto. Ideal para aqueles que gostam de misturar o esporte com o estilo urbano, ele garante estabilidade e estilo em qualquer ocasião.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 6,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "New Balance 574 - Masculino",
-    description:
-      "O New Balance 574 é um clássico. Leve e confortável, é ideal para o uso diário e oferece um visual casual que combina com tudo. Seu design icônico e palmilha confortável garantem um calce perfeito para longas caminhadas, sendo uma ótima escolha para quem prioriza o conforto sem abrir mão do estilo.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 7,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Puma RS-X - Masculino",
-    description:
-      "O Puma RS-X apresenta um design arrojado e um ajuste perfeito para os pés. Com materiais de alta qualidade e uma estrutura robusta, é ideal para atividades intensas e também para uso casual, tornando-se uma excelente opção para quem gosta de estilo e desempenho em um único calçado.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 8,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Fila Float Knit - Masculino",
-    description:
-      "O Fila Float Knit oferece um amortecimento eficiente e suporte adequado para diversas atividades esportivas. Com um design moderno e leve, este modelo é ideal para combinar com diferentes estilos e oferece conforto e estabilidade para quem busca performance e versatilidade.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 9,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Under Armour HOVR Phantom - Masculino",
-    description:
-      "Projetado para longas caminhadas, o Under Armour HOVR Phantom possui a tecnologia HOVR que proporciona excelente retorno de energia, garantindo conforto e leveza durante o uso. Ideal para quem busca um tênis funcional e confortável, sem abrir mão do design.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 10,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Converse Chuck Taylor All Star - Masculino",
-    description:
-      "O Converse Chuck Taylor All Star é um clássico que une estilo e conforto. Com seu design atemporal, é perfeito para um visual esportivo e casual. Sua estrutura resistente e conforto fazem dele uma ótima escolha para uso diário e em diferentes ocasiões.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 11,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Vans Old Skool - Masculino",
-    description:
-      "O Vans Old Skool oferece um visual clássico e um solado que garante aderência, ideal para uso em superfícies escorregadias. É perfeito para quem busca um estilo urbano com praticidade e conforto, sendo uma excelente escolha para o dia a dia.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 12,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Skechers GOwalk - Masculino",
-    description:
-      "Para quem busca conforto e estilo, o Skechers GOwalk é uma ótima escolha. Feito para caminhadas e longos períodos de uso, seu material leve e respirável proporciona frescor e leveza, ideal para quem precisa de um tênis para o dia a dia.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 13,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Brooks Ghost 14 - Masculino",
-    description:
-      "O Brooks Ghost 14 combina um acabamento premium com um design sofisticado, ideal para corredores que procuram desempenho e conforto. Com um sistema de amortecimento eficaz, é indicado tanto para treinos diários quanto para corridas de longa distância.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 14,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Salomon Speedcross 5 - Masculino",
-    description:
-      "Com um design aerodinâmico e leve, o Salomon Speedcross 5 é ideal para corridas em trilhas e terrenos acidentados. Sua estrutura proporciona tração e estabilidade, oferecendo segurança e performance para os aventureiros.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 15,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "On Cloudswift - Masculino",
-    description:
-      "O On Cloudswift é um tênis esportivo de alta performance, projetado para atletas e entusiastas de corrida. Com uma estrutura leve e uma sola inovadora, oferece conforto e desempenho superior, ideal para treinos e corridas.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 16,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Hoka One One Clifton 8 - Masculino",
-    description:
-      "O Hoka One One Clifton 8 é leve, resistente e projetado para corridas. Com um amortecimento eficiente, proporciona conforto e absorção de impacto, ideal para treinos longos e corridas intensas.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 17,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Merrell Moab 2 - Masculino",
-    description:
-      "O Merrell Moab 2 é ideal para trilhas, oferecendo durabilidade e conforto. Com proteção para os pés e uma sola resistente, garante estabilidade e segurança, sendo uma ótima escolha para os aventureiros que enfrentam terrenos desafiadores.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 18,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Altra Lone Peak 5 - Masculino",
-    description:
-      "O Altra Lone Peak 5 é projetado para trilhas, com uma sola que oferece aderência e tração em superfícies irregulares. É ideal para quem busca aventura e desempenho, proporcionando conforto e segurança em terrenos difíceis.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 19,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Asics GT-2000 - Masculino",
-    description: "Design urbano e casual.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 20,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Saucony Triumph 19 - Masculino",
-    description: "Ótima escolha para passeios ao ar livre.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 21,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Merrell Moab 2 - Masculino",
-    description: "Tênis com visual despojado e confortável.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 22,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "The North Face Ultra 111 - Masculino",
-    description: "Tênis moderno para atividades esportivas.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 23,
-    image: product,
-    discount: 10,
-  },
-  {
-    nome: "Tênis",
-    model: "Timberland Euro Sprint - Masculino",
-    description: "Ideal para treinos e corridas intensas.",
-    price: 1200.0,
-    new_price: 2000.0,
-    id: 24,
-    image: product,
-    discount: 10,
-  },
-];
+const ListaProdutos = () => {
+  const [produtos, setProdutos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { addToCart, removeFromCart } = Products;
 
-export default ListaProducts;
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/produtos")
+      .then((response) => {
+        setProdutos(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Erro ao carregar produtos:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <p>Carregando produtos...</p>;
+  }
+
+  return (
+    <div>
+      <h1>Lista de Produtos</h1>
+      <div className="produtos">
+        {produtos.map((produto) => (
+          <CardProducts
+            key={produto.id}
+            id={produto.id}
+            nome={produto.nome}
+            model={produto.model}
+            image={produto.image}
+            price={produto.price}
+            new_price={produto.new_price}
+            disccount={produto.discount}
+            removeFromCart={removeFromCart}
+            addToCart={addToCart}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ListaProdutos;

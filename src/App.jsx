@@ -49,33 +49,27 @@ const App = () => {
               }
             />
             <Route
-              path="/product/:id"
+              path="/products/:id"
               element={
-                <RouteProtected>
-                  <Layout>
-                    <ProductDetails />
-                  </Layout>
-                </RouteProtected>
+                <Layout>
+                  <ProductsPage />
+                </Layout>
               }
             />
             <Route
               path="/categorias"
               element={
-                <RouteProtected>
-                  <Layout>
-                    <ProductsListing />
-                  </Layout>
-                </RouteProtected>
+                <Layout>
+                  <ProductsListing />
+                </Layout>
               }
             />
             <Route
               path="/meus-pedidos"
               element={
-                <RouteProtected>
-                  <Layout>
-                    <Cart />
-                  </Layout>
-                </RouteProtected>
+                <Layout>
+                  <Cart />
+                </Layout>
               }
             />
             <Route
@@ -89,13 +83,11 @@ const App = () => {
               }
             />
             <Route
-              path="/produtos"
+              path="/produtcs/:id"
               element={
-                <RouteProtected>
-                  <Layout>
-                    <ProductsPage />
-                  </Layout>
-                </RouteProtected>
+                <Layout>
+                  <ProductsPage />
+                </Layout>
               }
             />
             <Route

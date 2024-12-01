@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { CartContext } from "../components/CartProvider";
-import image from "../assets/tenispageproducts.png";
+import image from "../assets/product.png";
 import image2 from "../assets/product.png";
 import image3 from "../assets/product.png";
 import image4 from "../assets/product.png";
@@ -13,28 +13,76 @@ import image5 from "../assets/product.png";
 import image6 from "../assets/product.png";
 import Products from "../components/Products";
 
-const ProductDetails = ({ removeFromCart }) => {
+const ProductDetails = () => {
   const { id } = useParams();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [product, setProduct] = useState(null);
+  const [isAdded, setIsAdded] = useState(false);
+  const [corSelect, setCorSelect] = useState(null);
+  const [products, setProducts] = useState([]); // Todos os produtos
 
-  const { cart, addToCart, isProductInCart } = useContext(CartContext);
+  const { cart, addToCart, isProductInCart, removeFromCart } =
+    useContext(CartContext);
   const navigate = useNavigate();
 
   const HandleAddToCart = () => {
-    addToCart({
-      id,
-      nome: productItem.nome,
-      model: productItem.model,
-      price: productItem.price,
-      new_price: productItem.new_price,
-      image: productItem.image,
-      disccount: productItem.discount,
-    });
+    addToCart(product);
+    setIsAdded(true);
+    alert(`Produto ${product.id} adicionado ao carrinho`);
   };
 
   const HandleRemoveFromCart = () => {
-    removeFromCart(id);
+    removeFromCart(Number(id));
+    setIsAdded(false);
+    alert(`Product ${product.id} removido do carrinho`);
   };
+
+  // Fetch product details
+  useEffect(() => {
+    setLoading(true);
+    console.log(`buscando com id, ${id}`);
+    fetch(`http://localhost:3000/products/${id}`)
+      .then((response) => {
+        if (!response.ok) {
+          console.error("nao encontrado");
+          throw new Error("Produto não encontrado");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("produto encontrado");
+        setProduct(data);
+        setIsAdded(isProductInCart(Number(id), cart));
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  }, [id, cart]);
+
+  const listarCoresDisponiveis = (produto) => {
+    if (produto?.color && Array.isArray(produto.color)) {
+      return produto.color.filter((cor) => /^#([A-Fa-f0-9]{6})$/.test(cor));
+    }
+    return [];
+  };
+
+  const coresDisponiveis = listarCoresDisponiveis(product);
+
+  if (loading) {
+    return <h2>Carregando...</h2>;
+  }
+
+  if (error) {
+    return <h2>{error}</h2>;
+  }
+
+  if (!product) {
+    return <h2>Produto não encontrado</h2>;
+  }
 
   const images = [image, image2, image3, image4, image5, image6];
   const colors = [
@@ -47,8 +95,9 @@ const ProductDetails = ({ removeFromCart }) => {
   ];
   const colorsClass = colors[currentIndex % colors.length];
   const productItem = ListaProducts;
-  const ratings = document.querySelector('input[name="rating"]:checked');
+
   const ratingValues = () => {
+    const ratings = document.querySelector('input[name="rating"]:checked');
     if (ratings) {
       document.getElementById("result").innerHTML = `${ratings.value} `;
     } else {
@@ -95,12 +144,27 @@ const ProductDetails = ({ removeFromCart }) => {
         </div>
         <div className="container-right-side">
           <div className="descriptions-product">
-            <p className="model">{productItem.model}</p>
-            <div className="rating">
-              <button className="button-rating" onClick={ratingValues}>
+            <p className="model">{product.model}</p>
+            <div className="mode-ref-category flex gap-1">
+              <p className="micro-descriptions border-right-1">
+                {product.brand}
+              </p>
+              <p className="micro-descriptions border-right-1 ">
+                {product.category}
+              </p>
+              <p className="micro-descriptions ">{product.reference}</p>
+            </div>
+
+            <div className="rating flex align-center">
+              <button
+                id="result"
+                className="button-rating"
+                onClick={ratingValues}
+              >
                 Avaliar
+                <p id="result"></p>
               </button>
-              <p id="result" className="estrelas pi pi-star"></p>
+
               <input type="radio" id="star5" name="rating" value="5" />
               <label htmlFor="star5">&#9733;</label>
               <input type="radio" id="star4" name="rating" value="4" />
@@ -112,14 +176,21 @@ const ProductDetails = ({ removeFromCart }) => {
               <input type="radio" id="star1" name="rating" value="1" />
               <label htmlFor="star1">&#9733;</label>
             </div>
-            <p className="container-precos">
-              <span className="p-precos">R$</span> {productItem.price}
-              <span className="p-newprice"> {productItem.new_price}</span>
-            </p>
+            <div className="container-precos">
+              <span className="p-precos">
+                <p>R$</p>
+                {product.price},<p>00</p>
+              </span>{" "}
+              <span className="p-newprice">
+                <p>R$</p>
+                {product.new_price}
+              </span>
+            </div>
             <br />
             <p className="container-descricao">
               <h2 className="h2-desc">Descrição do produto</h2>
-              <p className="desc">{productItem.description}</p>
+              <p>{product.nome}</p>
+              <p>{product.description}</p>
             </p>
             <br />
           </div>
@@ -140,9 +211,33 @@ const ProductDetails = ({ removeFromCart }) => {
               />
               <label htmlFor="42">42</label>
             </div>
+            <div className="container-bolinnhas">
+              <h2>Cores dísponiveis</h2>
+              <div id="cores-container">
+                {coresDisponiveis.map((cor, index) => (
+                  <div
+                    key={index}
+                    className={`cor ${corSelect === cor ? "selecionada" : ""}`}
+                    style={{ backgroundColor: cor }}
+                    onClick={() => setCorSelect(cor)}
+                  ></div>
+                ))}
+              </div>
+            </div>
           </div>
+
+          {isAdded ? (
+            <button
+              className="pi pi-minus-circle"
+              onClick={HandleRemoveFromCart}
+            ></button>
+          ) : (
+            <button className="button-buy " onClick={HandleAddToCart}>
+              Comprar
+            </button>
+          )}
         </div>
-        <Products />{" "}
+        <Products products={products} />{" "}
       </div>
     </>
   );

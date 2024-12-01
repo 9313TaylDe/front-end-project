@@ -5,21 +5,21 @@ export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const API_URL = "http://localhost:3000/api/products"; // URL do backend para produtos
+  //   const API_URL = "http://localhost:3000/api/products"; // URL do backend para produtos
 
-  // Carregar os produtos ao montar o componente
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(API_URL);
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Erro ao carregar produtos:", error);
-      }
-    };
+  //   // Carregar os produtos ao montar o componente
+  //   useEffect(() => {
+  //     const fetchProducts = async () => {
+  //       try {
+  //         const response = await axios.get(API_URL);
+  //         setProducts(response.data);
+  //       } catch (error) {
+  //         console.error("Erro ao carregar produtos:", error);
+  //       }
+  //     };
 
-    fetchProducts();
-  }, []);
+  //     fetchProducts();
+  //   }, []);
 
   // Adicionar um produto
   const addProduct = async (product) => {

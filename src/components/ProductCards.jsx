@@ -41,7 +41,7 @@ const CardProducts = ({
 
   const HandlePageClick = () => {
     scrollTop();
-    navigate(`/product/${id}/`);
+    navigate(`/products/${id}/`);
   };
 
   return (

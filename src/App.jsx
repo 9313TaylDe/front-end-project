@@ -17,6 +17,7 @@ import useAuth from "./hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ProductsProvider } from "./components/ProductsProvider";
+import ListaProdutos from "./components/ListaProducts";
 
 const App = () => {
   const Navigate = useNavigate();
@@ -48,14 +49,7 @@ const App = () => {
                 </RouteProtected>
               }
             />
-            <Route
-              path="/products/:id"
-              element={
-                <Layout>
-                  <ProductsPage />
-                </Layout>
-              }
-            />
+
             <Route
               path="/categorias"
               element={
@@ -83,10 +77,19 @@ const App = () => {
               }
             />
             <Route
-              path="/produtcs/:id"
+              path="/products/:id"
               element={
                 <Layout>
                   <ProductsPage />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/Products"
+              element={
+                <Layout>
+                  <ListaProdutos />
                 </Layout>
               }
             />

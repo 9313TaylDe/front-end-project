@@ -6,8 +6,10 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import Links from "../components/Links";
 import useAuth from "../hooks/useAuth";
 import RouteProtected from "../components/RoutesProtected";
+import "primeicons/primeicons.css";
+import facebook from "../assets/facebook.png";
+import instagram from "../assets/instagram.png";
 
-// Credenciais do Diretor
 export const NewAccount = ({ toggleLoginMode }) => {
   const [confiEmail, setConfiEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,22 +30,24 @@ export const NewAccount = ({ toggleLoginMode }) => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Nova conta agora</h2>
+    <div className="login-container flex ">
+      <div className="login-box w-full">
+        <h2 className="w-full flex align-content-center justify-content-center mt-5">
+          Cadastrando-se
+        </h2>
         <form onSubmit={handleSignup}>
           <input
             type="email"
             placeholder="Digite o seu e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="login-input"
+            className="login-input-credentials"
           />
           <input
             type="email"
             value={confiEmail}
             placeholder="Confirme o seu e-mail"
-            className="login-input"
+            className="login-input-credentials"
             onChange={(e) => setConfiEmail(e.target.value)}
           />
           <input
@@ -51,7 +55,7 @@ export const NewAccount = ({ toggleLoginMode }) => {
             placeholder="Digite a sua senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="login-input"
+            className="login-input-credentials"
           />
           {error && <p className="error-message">{error}</p>}
           <button type="submit" className="login-button">
@@ -61,7 +65,7 @@ export const NewAccount = ({ toggleLoginMode }) => {
             Já possui uma conta? Faça login aqui
           </Link>
         </form>
-        <div className="imgProduct">
+        <div className="imgProduct w-fit">
           <img src={loginImg} alt="Google" />
         </div>{" "}
       </div>
@@ -88,27 +92,41 @@ export const UserLogin = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Acesse sua conta como usuário</h2>
+        <h2 className="w-full flex justify-content-center mt-5">
+          Acesse sua conta como usuário
+        </h2>
         <form>
           <input
             type="email"
             placeholder="Digite o seu email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="login-input"
+            className="login-input-credentials"
           />
           <input
             type="password"
             placeholder="Digite a sua senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="login-input"
+            className="login-input-credentials"
           />
           {error && <p className="error-message">{error}</p>}
           <button type="button" onClick={handleLogin} className="login-button">
             Entrar
           </button>
+
+          <div className="redes-sociais">
+            <Link to="/https://facebook.com">
+              <img src={facebook} />
+            </Link>
+            <Link to="/https://instagram.com">
+              <img src={instagram} />
+            </Link>
+          </div>
         </form>
+        <div className="imgProduct w-fit">
+          <img src={loginImg} alt="Google" />
+        </div>{" "}
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 "use strict";
 const bcrypt = require("bcrypt");
 
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "User",
+    "Users", // Nome da tabela no banco de dados
     {
       firstname: {
         type: DataTypes.STRING,
@@ -34,5 +34,6 @@ module.exports = (sequelize, DataTypes) => {
     user.password = await bcrypt.hash(user.password, salt);
   });
 
+  // Corrigido: Retornar o modelo User
   return User;
 };

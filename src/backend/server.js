@@ -1,11 +1,8 @@
 import express from "express";
 import cors from "cors"; // Middleware para habilitar CORS
 import routes from "./routes.js";
-import user from "../models/user.js";
-const { User } = user;
 const app = express();
 const PORT = 3000;
-
 // Middleware
 app.use(cors()); // Permitir requisições de outras origens
 app.use(express.json()); // Habilitar JSON nas requisições

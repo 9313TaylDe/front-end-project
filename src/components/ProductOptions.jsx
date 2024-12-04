@@ -83,14 +83,17 @@ const ProductsListing = () => {
   };
 
   return (
-    <div className="container-productslisting mt-2 mb-2 ">
-      <div className="containerpai-opcoes">
+    <div className="containerpai-menu-option flex">
+      {/* Menu lateral para telas maiores */}
+      <div className="menu-desktop">
         <section className="container-opcoes">
           <h2>Marcas</h2>
           <div className="opcoes1">
             <div className="container-labelinput">
-              <input type="checkbox" name="adidas" id="adidas" />
-              <label htmlFor="adidas">Adidas</label>
+              <input type="checkbox" id="adidas" onChange={handleChangeBrand} />
+              <label htmlFor="adidas" onChange={handleChangeBrand}>
+                Adidas
+              </label>
             </div>
             <div className="container-labelinput">
               <input
@@ -102,8 +105,15 @@ const ProductsListing = () => {
               <label htmlFor="sweaters">Balenciaga </label>
             </div>
             <div className="container-labelinput">
-              <input type="checkbox" name="k-swiss" id="k-swiss" />
-              <label htmlFor="k-swiss">K-Swiss</label>
+              <input
+                type="checkbox"
+                onChange={handleChangeBrand}
+                name="k-swiss"
+                id="k-swiss"
+              />
+              <label htmlFor="k-swiss" onChange={handleChangeBrand}>
+                K-Swiss
+              </label>
             </div>
             <div className="container-labelinput">
               <input
@@ -118,24 +128,52 @@ const ProductsListing = () => {
               </label>
             </div>
             <div className="container-labelinput">
-              <input type="checkbox" name="puma" id="puma" />
-              <label htmlFor="puma">Puma</label>
+              <input
+                type="checkbox"
+                name="puma"
+                id="puma"
+                onChange={handleChangeBrand}
+              />
+              <label htmlFor="puma" onChange={handleChangeBrand}>
+                Puma
+              </label>
             </div>
           </div>
           <h2>Categoria</h2>
           <div className="opcoes2">
             <div className="container-labelinput">
-              <input type="checkbox" name="casual" id="casual" />
-              <label htmlFor="casual">Casual</label>
+              <input
+                type="checkbox"
+                name="casual"
+                id="casual"
+                onChange={handleChangeCategory}
+              />
+              <label htmlFor="casual" onChange={handleChangeCategory}>
+                Casual
+              </label>
             </div>
 
             <div className="container-labelinput">
-              <input type="checkbox" name="utilitario" id="utilitario" />
-              <label htmlFor="utilitario">Utilitário</label>
+              <input
+                type="checkbox"
+                name="utilitario"
+                id="utilitario"
+                onChange={handleChangeCategory}
+              />
+              <label htmlFor="utilitario" onChange={handleChangeCategory}>
+                Utilitário
+              </label>
             </div>
             <div className="container-labelinput">
-              <input type="checkbox" name="corrida" id="corrida" />
-              <label htmlFor="corrida">Corrida</label>
+              <input
+                type="checkbox"
+                name="corrida"
+                id="corrida"
+                onChange={handleChangeCategory}
+              />
+              <label htmlFor="corrida" onChange={handleChangeCategory}>
+                Corrida
+              </label>
             </div>
           </div>
           <h2>Gênero</h2>
@@ -154,7 +192,7 @@ const ProductsListing = () => {
             </div>
           </div>
           <div className="opcoes4">
-            <h2>Estados</h2>
+            <h2>Estado</h2>
             <div className="container-labelinput">
               <div className="custom-checkbox" id="novo" />
               <label htmlFor="novo">Novo</label>
@@ -166,102 +204,144 @@ const ProductsListing = () => {
           </div>
         </section>
       </div>
-      <div className="containerpai-menu-mobile-options  relative w-full">
-        <div className="menu-mobile-options absolute">
-          {!isOpen ? (
-            <>
-              <i className="pi pi-times" onClick={toggleOptions}></i>
-              <section className="container-opcoes">
-                <h2>Marcas</h2>
-                <div className="opcoes1">
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="adidas" id="adidas" />
-                    <label htmlFor="adidas">Adidas</label>
-                  </div>
-                  <div className="container-labelinput">
-                    <input
-                      type="checkbox"
-                      name="balenciaga"
-                      id="balenciaga"
-                      htmlFor="balenciaga"
-                    />
-                    <label htmlFor="sweaters">Balenciaga </label>
-                  </div>
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="k-swiss" id="k-swiss" />
-                    <label htmlFor="k-swiss">K-Swiss</label>
-                  </div>
-                  <div className="container-labelinput">
-                    <input
-                      type="checkbox"
-                      name="nike"
-                      value="nike"
-                      onClick={handleChangeBrand}
-                      id="nike"
-                    />
-                    <label htmlFor="nike" onClick={handleChangeBrand}>
-                      Nike
-                    </label>
-                  </div>
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="puma" id="puma" />
-                    <label htmlFor="puma">Puma</label>
-                  </div>
-                </div>
-                <h2>Categoria</h2>
-                <div className="opcoes2">
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="casual" id="casual" />
-                    <label htmlFor="casual">Casual</label>
-                  </div>
 
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="utilitario" id="utilitario" />
-                    <label htmlFor="utilitario">Utilitário</label>
-                  </div>
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="corrida" id="corrida" />
-                    <label htmlFor="corrida">Corrida</label>
-                  </div>
-                </div>
-                <h2>Gênero</h2>
-                <div className="opcoes3">
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="masculino" id="masculino" />
-                    <label htmlFor="masculino">Masculino</label>
-                  </div>
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="feminino" id="feminino" />
-                    <label htmlFor="feminino">Feminino</label>
-                  </div>
-                  <div className="container-labelinput">
-                    <input type="checkbox" name="unissex" id="unissex" />
-                    <label htmlFor="unissex">Unissex</label>
-                  </div>
-                </div>
-                <div className="opcoes4">
-                  <h2>Estado</h2>
-                  <div className="container-labelinput">
-                    <div className="custom-checkbox" id="novo" />
-                    <label htmlFor="novo">Novo</label>
-                  </div>
-                  <div className="container-labelinput">
-                    <div className="custom-checkbox" id="usado" />
-                    <label htmlFor="usado">Usado</label>
-                  </div>
-                </div>
-              </section>
-            </>
-          ) : (
-            <i onClick={toggleOptions} className="pi pi-filter icon-filter"></i>
-          )}
-        </div>
+      {/* Menu mobile para telas menores */}
+      <div className="menu-mobile-options absolute">
+        <i
+          className={`pi ${isOpen ? "pi-times" : "pi-filter"} icon-filter`}
+          onClick={toggleOptions}
+        ></i>
+        {isOpen && (
+          <section className="container-opcoes-mobile relative">
+            <h2>Marcas</h2>
+            <div className="opcoes1">
+              <div className="container-labelinput">
+                <input
+                  type="checkbox"
+                  id="adidas"
+                  onChange={handleChangeBrand}
+                />
+                <label htmlFor="adidas" onChange={handleChangeBrand}>
+                  Adidas
+                </label>
+              </div>
+              <div className="container-labelinput">
+                <input
+                  type="checkbox"
+                  name="balenciaga"
+                  id="balenciaga"
+                  htmlFor="balenciaga"
+                />
+                <label htmlFor="sweaters">Balenciaga </label>
+              </div>
+              <div className="container-labelinput">
+                <input
+                  type="checkbox"
+                  onChange={handleChangeBrand}
+                  name="k-swiss"
+                  id="k-swiss"
+                />
+                <label htmlFor="k-swiss" onChange={handleChangeBrand}>
+                  K-Swiss
+                </label>
+              </div>
+              <div className="container-labelinput">
+                <input
+                  type="checkbox"
+                  name="nike"
+                  value="nike"
+                  onClick={handleChangeBrand}
+                  id="nike"
+                />
+                <label htmlFor="nike" onClick={handleChangeBrand}>
+                  Nike
+                </label>
+              </div>
+              <div className="container-labelinput">
+                <input
+                  type="checkbox"
+                  name="puma"
+                  id="puma"
+                  onChange={handleChangeBrand}
+                />
+                <label htmlFor="puma" onChange={handleChangeBrand}>
+                  Puma
+                </label>
+              </div>
+            </div>
+            <h2>Categoria</h2>
+            <div className="opcoes2">
+              <div className="container-labelinput">
+                <input
+                  type="checkbox"
+                  name="casual"
+                  id="casual"
+                  onChange={handleChangeCategory}
+                />
+                <label htmlFor="casual" onChange={handleChangeCategory}>
+                  Casual
+                </label>
+              </div>
+
+              <div className="container-labelinput">
+                <input
+                  type="checkbox"
+                  name="utilitario"
+                  id="utilitario"
+                  onChange={handleChangeCategory}
+                />
+                <label htmlFor="utilitario" onChange={handleChangeCategory}>
+                  Utilitário
+                </label>
+              </div>
+              <div className="container-labelinput">
+                <input
+                  type="checkbox"
+                  name="corrida"
+                  id="corrida"
+                  onChange={handleChangeCategory}
+                />
+                <label htmlFor="corrida" onChange={handleChangeCategory}>
+                  Corrida
+                </label>
+              </div>
+            </div>
+            <h2>Gênero</h2>
+            <div className="opcoes3">
+              <div className="container-labelinput">
+                <input type="checkbox" name="masculino" id="masculino" />
+                <label htmlFor="masculino">Masculino</label>
+              </div>
+              <div className="container-labelinput">
+                <input type="checkbox" name="feminino" id="feminino" />
+                <label htmlFor="feminino">Feminino</label>
+              </div>
+              <div className="container-labelinput">
+                <input type="checkbox" name="unissex" id="unissex" />
+                <label htmlFor="unissex">Unissex</label>
+              </div>
+            </div>
+            <div className="opcoes4">
+              <h2>Estado</h2>
+              <div className="container-labelinput">
+                <div className="custom-checkbox" id="novo" />
+                <label htmlFor="novo">Novo</label>
+              </div>
+              <div className="container-labelinput">
+                <div className="custom-checkbox" id="usado" />
+                <label htmlFor="usado">Usado</label>
+              </div>
+            </div>
+          </section>
+        )}
       </div>
-      <section className="container-listingproducts flex flex-wrap ">
-        <div className="container-ordena-e-total flex">
+
+      {/* Lista de produtos */}
+      <section className="container-listingproducts h-full w-full flex">
+        <div className="container-produtofilter">
           <h2 className="total-products">
             Resultados para "Tênis" - {totalProdutos}
-          </h2>{" "}
+          </h2>
           <div className="combobox-container">
             <label htmlFor="options" className="combobox-label">
               Ordenar por:

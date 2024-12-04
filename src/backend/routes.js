@@ -1,8 +1,9 @@
 import express from "express";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const db = require("./db.json");
 const routes = express.Router();
-
-import db from "./db.json" assert { type: "json" };
-
 routes.get("/products", (req, res) => {
   console.log(db.produtos); // Verifique se os dados estão sendo carregados corretamente
   res.json(db.produtos || []); // Garanta que pelo menos um array vazio seja retornado
@@ -13,13 +14,13 @@ routes.get("/categorias", (req, res) => {
 });
 
 routes.get("/products/:id", (req, res) => {
-  const { id } = req.params; // Pega o parâmetro `id` da URL
-  const product = db.produtos.find((prod) => prod.id === parseInt(id)); // Garanta que o ID seja comparado corretamente
+  const { id } = req.params;
+  const product = db.produtos.find((prod) => prod.id === parseInt(id));
 
   if (product) {
-    res.status(200).json(product); // Retorna o produto encontrado
+    res.status(200).json(product);
   } else {
-    res.status(404).json({ message: "Produto não encontrado" }); // Caso o produto não exista
+    res.status(404).json({ message: "Produto não encontrado" });
   }
 });
 

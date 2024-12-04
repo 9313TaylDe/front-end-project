@@ -10,7 +10,7 @@ const ListaProdutos = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/produtos")
+      .get("http://localhost:3000/products")
       .then((response) => {
         setProdutos(response.data);
         setLoading(false);
@@ -26,9 +26,9 @@ const ListaProdutos = () => {
   }
 
   return (
-    <div>
-      <h1>Lista de Produtos</h1>
-      <div className="produtos">
+    <div className="containerpai-produtos">
+      <h2>Lista de Produtos</h2>
+      <div className="produtos flex flex-wrap h-full">
         {produtos.map((produto) => (
           <CardProducts
             key={produto.id}

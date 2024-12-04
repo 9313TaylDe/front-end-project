@@ -15,7 +15,7 @@ const Products = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
   // URL base do backend (usando variável de ambiente ou fallback para o local)
-  const BASE_URL = backendUrl.env || "http://localhost:3000";
+  const BASE_URL = backendUrl.env || "http://localhost:4000";
 
   // Função para verificar se o produto está no carrinho
   const IsProductInCart = (productId) => {

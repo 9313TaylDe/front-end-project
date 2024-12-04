@@ -11,10 +11,12 @@ const ProductsListing = () => {
   const [totalProdutos, setTotalProdutos] = useState(0); // Total de produtos
   const [selectedBrand, setSelectedBrand] = useState(""); // Marca selecionada
   const [selectCategory, setSelectedCategory] = useState("");
-  // Efeito para carregar os produtos ao montar o componente
+  const REACT_APP_API_BASE_URL =
+    "https://front-end-project-1npm-run.onrender.com";
+
   useEffect(() => {
     axios
-      .get("http://localhost:3000/products") // Atualizar a URL conforme a sua API
+      .get(`REACT_APP_API_BASE_URL${"/products"}`)
       .then((response) => {
         setProducts(response.data); // Atualiza o estado com todos os produtos
         setFilteredProducts(response.data); // Inicialmente, exibe todos os produtos

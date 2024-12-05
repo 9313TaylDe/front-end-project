@@ -1,42 +1,52 @@
 import express from "express";
-import cors from "cors"; // Middleware para habilitar CORS
-import fetch from "node-fetch"; // Para requisições ao backend remoto
+import { Sequelize } from "sequelize";
+import defineProductModel from "../models/tabelaProdutos.js";
+import productRoutes from "../routes/produtosRoutes.js";
+import defineCategoryModel from "../models/tabelaCategoria.js";
+import categoryRoutes from "../routes/categoriasRoutes.js";
 
 const app = express();
+const PORT = process.env.Port || 3000;
 
-// Configuração de porta
-const PORT = process.env.PORT || 4000;
-
-// URL do backend remoto
-const REMOTE_BACKEND_URL = "https://front-end-project-1npm-run.onrender.com";
-
-// Middleware
-app.use(
-  cors({
-    origin: "https://front-end-gtech.netlify.app", // Permitir requisições do frontend hospedado no Netlify
-  })
-);
-app.use(express.json()); // Habilitar JSON nas requisições
-
-// Endpoint para obter produtos
-app.get("/products", async (req, res) => {
-  try {
-    const response = await fetch(`${REMOTE_BACKEND_URL}/products`); // Requisição para o backend remoto
-    const products = await response.json();
-
-    if (response.ok) {
-      res.status(200).json(products); // Retorna os produtos encontrados
-    } else {
-      res.status(response.status).json(products); // Retorna o erro do backend remoto
-    }
-  } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Erro ao buscar produtos", error: error.message });
-  }
+// Configuração do Sequelize
+const sequelize = new Sequelize({
+  dialect: "mysql", // Ou 'postgres', 'sqlite', etc.
+  host: "localhost", // Ou o host do seu banco de dados
+  username: "root", // Seu usuário
+  password: "12345678", // Sua senha
+  database: "produtosTable", // Nome do seu banco
 });
 
-// Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+// Teste de conexão com o banco de dados
+sequelize
+  .authenticate()
+  .then(() => console.log("Conexão bem-sucedida com o banco de dados"))
+  .catch((error) => console.error("Erro ao conectar ao banco:", error));
+
+// Middleware
+app.use(express.json());
+app.use((req, res, next) => {
+  console.log(`Recebido, ${req.method} ${req.url}`);
+  console.log("Body:", req.body);
+  next();
+});
+
+// Definindo os modelos e rotas
+const Product = defineProductModel(sequelize);
+const Category = defineCategoryModel(sequelize);
+app.use("/api/categorias", categoryRoutes(Category));
+app.use("/api/products", productRoutes(Product));
+
+// Sincronizando os modelos com o banco e iniciando o servidor
+sequelize.sync({ force: false }).then(() => {
+  app
+    .listen(PORT, () => {
+      console.log(`Servidor rodando na porta ${PORT}`);
+    })
+    .on("error", (err) => {
+      if (err.code === "EADDRINUSE") {
+        console.error(`Erro: A porta ${PORT} já está em uso.`);
+        process.exit(1); // Finaliza o processo com erro
+      }
+    });
 });

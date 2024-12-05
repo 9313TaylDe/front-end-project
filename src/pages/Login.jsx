@@ -31,7 +31,7 @@ export const NewAccount = ({ toggleLoginMode }) => {
 
   return (
     <div className="login-container flex ">
-      <div className="login-box w-full">
+      <div className="login-box">
         <h2 className="w-full flex align-content-center justify-content-center mt-5">
           Cadastrando-se
         </h2>

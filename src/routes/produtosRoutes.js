@@ -20,17 +20,22 @@ export default (Product) => {
     }
   });
 
-  // Obter todos os produtos
-  router.get("/", async (req, res) => {
+  // Defina a rota para buscar todos os produtos
+  router.get("/products", async (req, res) => {
     try {
-      const products = await Product.findAll();
-      res.status(200).json(products);
+      // Simulando um banco de dados com um array de produtos
+      const products = await Product.findAll(); // Aqui você deve pegar os produtos do banco de dados
+
+      if (!products || products.length === 0) {
+        return res.status(404).json({ message: "Nenhum produto encontrado" });
+      }
+
+      res.status(200).json(products); // Retorna os produtos encontrados
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
       res.status(500).json({ error: "Erro ao buscar produtos" });
     }
   });
-
   // Obter produto por ID
   router.get("/:id", async (req, res) => {
     try {

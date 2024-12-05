@@ -4,26 +4,26 @@ import bcrypt from "bcryptjs"; // Para criptografar senhas
 const router = express.Router();
 
 export default (User) => {
-  // Criar usuário
-  router.post("/", async (req, res) => {
+  const createUser = async (userData) => {
     try {
-      const { name, email, password, role } = req.body;
+      // URL do back-end atualizado para a hospedagem correta
+      const response = await fetch(
+        "https://front-end-project-1npm-run.onrender.com/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
 
-      // Criptografar a senha
-      const hashedPassword = await bcrypt.hash(password, 10);
-
-      const user = await User.create({
-        name,
-        email,
-        password: hashedPassword,
-        role,
-      });
-      res.status(201).json(user);
+      const data = await response.json();
+      console.log("Usuário criado:", data);
     } catch (error) {
       console.error("Erro ao criar usuário:", error);
-      res.status(500).json({ error: "Erro ao criar usuário" });
     }
-  });
+  };
 
   // Obter todos os usuários
   router.get("/", async (req, res) => {

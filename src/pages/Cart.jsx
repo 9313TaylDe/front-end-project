@@ -264,7 +264,7 @@ export const CongratulationsToPay = () => {
   );
 };
 
-const Cart = () => {
+export const Cart = () => {
   const { cart, removeFromCart } = useContext(CartContext);
 
   const calculateTotal = () => {
@@ -278,29 +278,14 @@ const Cart = () => {
   return (
     <div className="containerpai-cart">
       <div className="cart-container">
-        {/* <h3>Total: R${calculateTotal()}</h3> */}
         {cart.length === 0 ? (
           <p>Adicione produtos</p>
         ) : (
           <div className="card-carts">
             <PayConclued />
-            {/* {cart.map((product) => (
-              <CardProducts
-                key={product.id}
-                id={product.id}
-                image={product.image}
-                model={product.model}
-                nome={product.nome}
-                price={product.price}
-                new_price={product.new_price}
-                removeFromCart={removeFromCart}
-              />
-            ))} */}
           </div>
         )}
       </div>
     </div>
   );
 };
-
-export default Cart;

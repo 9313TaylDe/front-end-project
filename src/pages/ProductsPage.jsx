@@ -13,7 +13,7 @@ import image5 from "../assets/product.png";
 import image6 from "../assets/product.png";
 import Products from "../components/Products";
 
-const ProductDetails = () => {
+export const ProductsPage = () => {
   const { id } = useParams();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -38,30 +38,6 @@ const ProductDetails = () => {
     setIsAdded(false);
     alert(`Product ${product.id} removido do carrinho`);
   };
-
-  // Fetch product details
-  useEffect(() => {
-    setLoading(true);
-    console.log(`buscando com id, ${id}`);
-    fetch(`http://localhost:3000/products/${id}`)
-      .then((response) => {
-        if (!response.ok) {
-          console.error("nao encontrado");
-          throw new Error("Produto não encontrado");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("produto encontrado");
-        setProduct(data);
-        setIsAdded(isProductInCart(Number(id), cart));
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
-  }, [id, cart]);
 
   const listarCoresDisponiveis = (produto) => {
     if (produto?.color && Array.isArray(produto.color)) {
@@ -242,5 +218,3 @@ const ProductDetails = () => {
     </>
   );
 };
-
-export default ProductDetails;

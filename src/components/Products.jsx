@@ -1,12 +1,14 @@
+import { useState } from "react";
+import CartContext from "./CartProvider";
+import { useContext } from "react";
 import CardProducts from "./ProductCards";
-import "primeicons/primeicons.css";
-import "../css/Product.css";
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { CartContext } from "./CartProvider";
-
 const Products = ({ products = [] }) => {
-  // Recebe os produtos como prop
+  // Verifica se products é um array antes de usar o método slice
+  if (!Array.isArray(products)) {
+    console.error("Products must be an array");
+    return null;
+  }
+
   const [visibleCounts, setVisibleCounts] = useState(4);
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
@@ -48,7 +50,7 @@ const Products = ({ products = [] }) => {
             </Link>
           </button>
         )}
-        {visibleCounts > 8 && (
+        {visibleCounts > 4 && (
           <button onClick={showMore} id="ver-menos">
             Ver
             <Link>

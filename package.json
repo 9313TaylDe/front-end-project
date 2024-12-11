@@ -2,13 +2,12 @@
   "name": "front-end",
   "private": true,
   "version": "0.0.0",
-  "proxy": "https://front-end-project-1npm-run.onrender.com",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"npm run dev-frontend\" \"npm run dev-backend\"",
+    "start": "concurrently \"npm run dev-frontend\" concurrently \"npm run dev-backend\"",
     "dev": "concurrently \"npm run dev-frontend\" \"npm run dev-backend\"",
     "dev-frontend": "vite",
-    "dev-backend": "nodemon src/backend/server.js",
+    "dev-backend": "nodemon src/services/server.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
